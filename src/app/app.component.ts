@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string = 'angular 101';
+  title: string = 'Angular 101';
   age: number = 10;
 
   constructor(){
-    
+
   }
 
 
