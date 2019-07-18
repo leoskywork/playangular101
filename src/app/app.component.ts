@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'Angular 101';
-  age: number = 10;
+  createdAt: Date = new Date('2019-7-15');
 
   constructor(){
 

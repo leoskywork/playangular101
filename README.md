@@ -1,6 +1,28 @@
 # Angular101
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+a project to get familiar with Angular fundamentals
+
+## todo
+
+* [ ] a clipboard
+* [ ] clipboard history of current month
+* [ ] all clipboard history months
+* [ ] add authorization
+
+## references
+
+## flowing is auto generated
+
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
 
 ## Development server
 
