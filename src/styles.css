@@ -24,3 +24,8 @@ a{
 h1{
     color: darkslategray;
 }
+
+.app-name{
+    color: deepskyblue;
+    margin-top: 10px
+}

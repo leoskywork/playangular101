@@ -6,31 +6,32 @@
     cursor: pointer;
     float: right;   
     font-size: 0.6em;
-    bottom: 2px; /*need work with 'position: relative'*/
-    position: relative;
+    background-color: deepskyblue;
+    margin-right: 4px;
+
+    /*need work with 'position: relative'*/
+    /* bottom: 2px;  */
+    /* position: relative; */
+}
+
+.button-action:hover{
+    background-color: mediumslateblue;
 }
 
 .button-delete{
     background-color: #e08c8c;
+    margin-right: 0;
 }
 
 .button-delete:hover{
     background-color: red;
 }
 
-.button-update{
-    background-color: lightskyblue;
-    margin-right: 2px;
-}
-
-.button-update:hover{
-    background-color: mediumslateblue;
-}
-
 .note{
-    background-color: #f4f4f4;
+    background-color: lightblue;
     padding: 10px;
-    border-bottom: 1px #ccc dotted;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .note .author{
@@ -43,25 +44,21 @@
 }
 
 .note .created-at{
-    color: silver;
     padding-left: 10px;
 }
 
 .note .data-readonly{
     padding: 10px;
-    background-color: lightblue;
-    border-radius: 10px;
 }
 
 .note .update-info{
     text-align: right;
     display: block;
-
     margin-top: 10px;
-    color: steelblue;
 }
 
 .trivial-info{
     font-size: 0.7em;
     font-style: italic;
+    color: steelblue;
 }

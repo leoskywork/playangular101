@@ -3,7 +3,8 @@
         <span class='author' title="todo...">{{ note.userId | uppercase }}</span>
         <span class='created-at trivial-info'>{{ note.createdAt | date:'yyyy.MM.dd h:mm a z' }}</span>
         <button class="button-action button-delete" title="delete">X</button>
-        <button class="button-action button-update" title="edit">E</button>
+        <button class="button-action" title="edit">E</button>
+        <button class="button-action" title="copy">C</button>
     </div>
     <p class='data-readonly'>
         {{ note.data }}
