@@ -1,3 +1,16 @@
-<div>
-    <p>{{ note.data }}</p>
+<div class='note'>
+    <div>
+        <span class='author' title="todo...">{{ note.userId | uppercase }}</span>
+        <span class='created-at trivial-info'>{{ note.createdAt | date:'yyyy.MM.dd h:mm a z' }}</span>
+        <button class="button-action button-delete" title="delete">X</button>
+        <button class="button-action button-update" title="edit">E</button>
+    </div>
+    <p class='data-readonly'>
+        {{ note.data }}
+        <br>
+        <!-- don't use unified date format here, just for fun -->
+        <span class='update-info trivial-info' *ngIf="note.hasUpdated">
+            last edited by {{ note.lastUpdatedBy | uppercase }} at {{ note.lastUpdatedAt | date:'yyyy.MM.dd H:mm z' }}
+        </span>
+    </p>
 </div>

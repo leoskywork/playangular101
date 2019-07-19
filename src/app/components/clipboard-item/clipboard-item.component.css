@@ -1,0 +1,67 @@
+.button-action{
+    color: white;
+    border: none;
+    padding: 5px 7px;
+    border-radius: 50%;
+    cursor: pointer;
+    float: right;   
+    font-size: 0.6em;
+    bottom: 2px; /*need work with 'position: relative'*/
+    position: relative;
+}
+
+.button-delete{
+    background-color: #e08c8c;
+}
+
+.button-delete:hover{
+    background-color: red;
+}
+
+.button-update{
+    background-color: lightskyblue;
+    margin-right: 2px;
+}
+
+.button-update:hover{
+    background-color: mediumslateblue;
+}
+
+.note{
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px #ccc dotted;
+}
+
+.note .author{
+    /* min-width: 80px; */
+    display: inline-block;
+    color: slateblue;
+    font-family: monospace;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.note .created-at{
+    color: silver;
+    padding-left: 10px;
+}
+
+.note .data-readonly{
+    padding: 10px;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.note .update-info{
+    text-align: right;
+    display: block;
+
+    margin-top: 10px;
+    color: steelblue;
+}
+
+.trivial-info{
+    font-size: 0.7em;
+    font-style: italic;
+}

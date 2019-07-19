@@ -23,7 +23,10 @@ export class ClipboardComponent implements OnInit {
         "uid": "aef2b48d-db52-4f07-acdc-af490d035a9e",
         "userId": "u086001",
         "createdAt": new Date("2019-07-19T15:28:32.3871758+08:00"),
-        "data": "test678910 11 12"
+        "data": "test678910 11 12",
+        hasUpdated: true,
+        lastUpdatedBy: "u086002",
+        lastUpdatedAt: new Date("2019-07-19T16:39:32.3871758+08:00")
       },
       {
         "uid": "26aaa648-d533-484c-84f7-f6f81214fa24",

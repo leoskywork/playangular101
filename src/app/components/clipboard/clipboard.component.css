@@ -1,0 +1,10 @@
+.section-expander{
+    color: skyblue;
+    cursor: pointer;
+}
+
+.next-page{
+    color: skyblue;
+    text-align: center;
+    cursor: pointer;
+}
