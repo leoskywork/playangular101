@@ -9,9 +9,12 @@ export class AppComponent {
   title: string = 'Angular 101';
   createdAt: Date = new Date('2019-7-15');
 
-  constructor(){
+  constructor() {
 
   }
 
-
+  test() {
+    console.log("test");
+    let a = 10;
+  }
 }

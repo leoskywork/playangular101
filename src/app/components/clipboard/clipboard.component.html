@@ -1,1 +1,6 @@
-<p>clipboard works!</p>
+<!-- <ul *ngFor="let note of notes">
+    <li>{{ note.data }}</li>
+</ul> -->
+
+<app-clipboard-item *ngFor="let note of notes" [note]="note">
+</app-clipboard-item>

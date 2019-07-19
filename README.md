@@ -1,4 +1,4 @@
-# Angular101
+# Angular 101
 
 a project to get familiar with Angular fundamentals
 
@@ -8,6 +8,10 @@ a project to get familiar with Angular fundamentals
 * [ ] clipboard history of current month
 * [ ] all clipboard history months
 * [ ] add authorization
+
+## is it true
+
+* there can not be 2 root elements in component html file?
 
 ## references
 

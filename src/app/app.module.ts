@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClipboardComponent } from './components/clipboard/clipboard.component';
+import { ClipboardItemComponent } from './components/clipboard-item/clipboard-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClipboardComponent
+    ClipboardComponent,
+    ClipboardItemComponent
   ],
   imports: [
     BrowserModule,
