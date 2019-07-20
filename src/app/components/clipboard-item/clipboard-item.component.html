@@ -12,12 +12,15 @@
     <div>
         <p *ngIf='!isEditing' class='data-readonly'>{{ note.data }} </p>
         <form *ngIf='isEditing'>
-            <!-- the value of name attribute should be the same as the mode -->
-            <textarea class='data-editor' name='newData' [(ngModel)]='newData' rows='10'></textarea>
+            <!-- the value of name attribute should be the same as the mode-->
+            <textarea class='data-editor' name='newData' [(ngModel)]='newData' rows='10'
+                [disabled]='isSaving'></textarea>
             <br>
             <div class='titled-action-bar'>
-                <button type='button' class='button-titled' (click)='onCancelEdit()'>Cancel</button>
-                <button type='submit' class='button-titled button-primary' (click)='onSave()'>Save</button>
+                <button type='button' class='button-titled' (click)='onCancelEdit()'
+                    [ngClass]="{'button-disabled':!canEnableCancel()}" [disabled]='!canEnableCancel()'>Cancel</button>
+                <button type='submit' class='button-titled button-primary' (click)='onSave()'
+                    [ngClass]="{'button-disabled':!canEnableSave()}" [disabled]='!canEnableSave()'>Save</button>
             </div>
         </form>
         <span class='update-info trivial-info' *ngIf='note.hasUpdated'>

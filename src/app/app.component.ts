@@ -10,11 +10,11 @@ export class AppComponent {
   createdAt: Date = new Date('2019-7-15');
 
   constructor() {
-
+    this.test();
   }
 
   test() {
-    console.log("test");
+    console.log("app.component - test");
     let a = 10;
   }
 }

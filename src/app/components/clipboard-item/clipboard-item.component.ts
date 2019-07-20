@@ -19,6 +19,7 @@ export class ClipboardItemComponent implements OnInit {
   }
 
   onDelete() {
+    // todo 
 
   }
 
@@ -38,15 +39,18 @@ export class ClipboardItemComponent implements OnInit {
     document.execCommand('Copy');
     textArea.remove();
     // todo - show 'Copied'
+
   }
 
   onSave() {
+    console.log('onSave()');
     this.isSaving = true;
     // todo - save to server
 
   }
 
   onCancelEdit() {
+    console.log('onCancel()');
     this.isEditing = false;
     this.newData = this.note.data;
   }

@@ -59,9 +59,12 @@
 }
 
 .button-disabled{
-    background-color: lightgray;
-    color: slategray;
+    background-color: lightgray !important;
+    color: darkgray !important;
     cursor: not-allowed;
+
+    /* insufficient, this only skip mouse action, would also need to skip keyboard action, need to set attr 'disabled' */
+    /* pointer-events: none; */
 }
 
 /* note item */
@@ -112,4 +115,5 @@ textarea.data-editor{
     width: 100%;
     line-height: 1.4;
     border: deepskyblue 1px solid;
+    resize: vertical;
 }

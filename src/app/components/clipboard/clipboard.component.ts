@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from '../../models/note';
+import { NoteService } from '../../services/note.service';
 
 @Component({
   selector: 'app-clipboard',
@@ -8,33 +9,23 @@ import { Note } from '../../models/note';
 })
 export class ClipboardComponent implements OnInit {
   notes: Note[];
+  isLoadingNotes: boolean;
 
-  constructor() { }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit() {
-    this.notes = [
-      {
-        "uid": "90a8bb11-6b1e-4260-a228-82069ee5dcb3",
-        "userId": "u086001",
-        "createdAt": new Date("2019-07-18T11:28:52.6489109+08:00"),
-        "data": "test678910 11"
-      },
-      {
-        "uid": "aef2b48d-db52-4f07-acdc-af490d035a9e",
-        "userId": "u086001",
-        "createdAt": new Date("2019-07-19T15:28:32.3871758+08:00"),
-        "data": "test678910 11 12",
-        hasUpdated: true,
-        lastUpdatedBy: "u086002",
-        lastUpdatedAt: new Date("2019-07-19T16:39:32.3871758+08:00")
-      },
-      {
-        "uid": "26aaa648-d533-484c-84f7-f6f81214fa24",
-        "userId": "u086002",
-        "createdAt": new Date("2019-07-19T15:28:38.9301478+08:00"),
-        "data": "test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222 test 678910 11 12 222test 678910 11 12 222 test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222"
-      }
-    ];
+    this.isLoadingNotes = true;
+    this.noteService.getNotes(new Date()).subscribe(data => {
+      this.isLoadingNotes = false;
+      this.notes = data;
+    }, error => {
+      this.isLoadingNotes = false;
+      this.onAjaxError(error, { source: 'init - get notes', params: 'todo...' });
+    });
   }
 
+  onAjaxError(error, request) {
+    //todo - handle error, show to user? should do this in the service class(data access service)
+    console.log(error);
+  }
 }
