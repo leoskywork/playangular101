@@ -1,17 +1,28 @@
 <div class='note'>
     <div>
-        <span class='author' title="todo...">{{ note.userId | uppercase }}</span>
+        <span class='author' [ngClass]="{'overwrite': note.hasUpdated}"
+            title='todo...'>{{ note.userId | uppercase }}</span>
         <span class='created-at trivial-info'>{{ note.createdAt | date:'yyyy.MM.dd h:mm a z' }}</span>
-        <button class="button-action button-delete" title="delete">X</button>
-        <button class="button-action" title="edit">E</button>
-        <button class="button-action" title="copy">C</button>
+        <div class="action-bar" [hidden]='isEditing'>
+            <button class='button-action' title='copy' (click)='onCopy()'>C</button>
+            <button class='button-action' title='edit' (click)='onBeginEdit()'>E</button>
+            <button class='button-action button-delete' title='delete' (click)='onDelete()'>X</button>
+        </div>
     </div>
-    <p class='data-readonly'>
-        {{ note.data }}
-        <br>
-        <!-- don't use unified date format here, just for fun -->
-        <span class='update-info trivial-info' *ngIf="note.hasUpdated">
+    <div>
+        <p *ngIf='!isEditing' class='data-readonly'>{{ note.data }} </p>
+        <form *ngIf='isEditing'>
+            <!-- the value of name attribute should be the same as the mode -->
+            <textarea class='data-editor' name='newData' [(ngModel)]='newData' rows='10'></textarea>
+            <br>
+            <div class='titled-action-bar'>
+                <button type='button' class='button-titled' (click)='onCancelEdit()'>Cancel</button>
+                <button type='submit' class='button-titled button-primary' (click)='onSave()'>Save</button>
+            </div>
+        </form>
+        <span class='update-info trivial-info' *ngIf='note.hasUpdated'>
+            <!-- don't use unified date format here, just for fun -->
             last edited by {{ note.lastUpdatedBy | uppercase }} at {{ note.lastUpdatedAt | date:'yyyy.MM.dd H:mm z' }}
         </span>
-    </p>
+    </div>
 </div>

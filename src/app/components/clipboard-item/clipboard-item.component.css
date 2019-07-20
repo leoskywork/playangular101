@@ -1,17 +1,23 @@
+.action-bar{
+    float: right;
+}
+
 .button-action{
     color: white;
     border: none;
     padding: 5px 7px;
     border-radius: 50%;
     cursor: pointer;
-    float: right;   
     font-size: 0.6em;
     background-color: deepskyblue;
-    margin-right: 4px;
 
     /*need work with 'position: relative'*/
     /* bottom: 2px;  */
     /* position: relative; */
+}
+
+.action-bar .button-action{
+    margin-left: 8px;
 }
 
 .button-action:hover{
@@ -20,12 +26,45 @@
 
 .button-delete{
     background-color: #e08c8c;
-    margin-right: 0;
 }
 
 .button-delete:hover{
     background-color: red;
 }
+
+.titled-action-bar{
+    display: flex;
+    flex-flow: row-reverse;
+}
+
+.button-titled{
+    border: none;
+    color: white;
+    background-color: deepskyblue;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.titled-action-bar .button-titled{
+    margin-left: 10px;
+}
+
+.button-titled:hover{
+    background-color: slateblue;
+}
+
+.button-primary{
+    background-color: mediumslateblue;
+}
+
+.button-disabled{
+    background-color: lightgray;
+    color: slategray;
+    cursor: not-allowed;
+}
+
+/* note item */
 
 .note{
     background-color: lightblue;
@@ -48,7 +87,8 @@
 }
 
 .note .data-readonly{
-    padding: 10px;
+    padding: 10px 0;
+    color: darkslategray;
 }
 
 .note .update-info{
@@ -61,4 +101,15 @@
     font-size: 0.7em;
     font-style: italic;
     color: steelblue;
+}
+
+.overwrite{
+    text-decoration: line-through;
+}
+
+textarea.data-editor{
+    padding: 10px;
+    width: 100%;
+    line-height: 1.4;
+    border: deepskyblue 1px solid;
 }

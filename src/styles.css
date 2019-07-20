@@ -29,3 +29,13 @@ h1{
     color: deepskyblue;
     margin-top: 10px
 }
+
+.inline{
+    display: inline;
+}
+
+/* angular hack */
+/* ensure [hidden] binding works */
+[hidden]{
+    display: none !important;
+}
