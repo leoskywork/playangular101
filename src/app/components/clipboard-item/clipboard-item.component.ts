@@ -22,6 +22,9 @@ export class ClipboardItemComponent implements OnInit {
 
   onDelete() {
     // todo 
+    if (confirm(`Please be aware that note(${this.note.data.substr(0, Math.min(5, this.note.data.length))}...) will be deleted`)) {
+      console.log("confirm delete");
+    }
 
   }
 

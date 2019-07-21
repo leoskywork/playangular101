@@ -116,4 +116,6 @@ textarea.data-editor{
     line-height: 1.4;
     border: deepskyblue 1px solid;
     resize: vertical;
+    /* transition-duration: 2s; */
+    /* transition-timing-function: ease-in; */
 }

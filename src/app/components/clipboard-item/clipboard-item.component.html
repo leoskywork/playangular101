@@ -1,12 +1,12 @@
 <div class='note-item'>
     <div>
         <span class='author' [ngClass]="{'overwrite': note.hasUpdated}"
-            title='todo...'>{{ note.createdBy | uppercase }}</span>
+            title='{{ note.hasUpdated?"Current author is "+note.lastUpdatedBy.toUpperCase():"todo..." }}'>{{ note.createdBy | uppercase }}</span>
         <span class='created-at trivial-info'>{{ note.createdAt | date:'yyyy.MM.dd h:mm a z' }}</span>
         <div class="action-bar" [hidden]='isEditing'>
-            <button type="button" class='button-action' title='copy' (click)='onCopy()'>C</button>
-            <button type="button" class='button-action' title='edit' (click)='onBeginEdit($event)'>E</button>
-            <button type="button" class='button-action button-delete' title='delete' (click)='onDelete()'>X</button>
+            <button type="button" class='button-action' title='Copy' (click)='onCopy()'>C</button>
+            <button type="button" class='button-action' title='Edit' (click)='onBeginEdit($event)'>E</button>
+            <button type="button" class='button-action button-delete' title='Delete' (click)='onDelete()'>X</button>
         </div>
     </div>
     <div>
