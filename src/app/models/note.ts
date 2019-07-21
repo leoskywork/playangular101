@@ -1,6 +1,6 @@
 export class Note {
     uid: string;
-    userId: string;
+    createdBy: string;
     createdAt: Date;
     data: string;
     hasUpdated?: boolean;

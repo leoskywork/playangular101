@@ -18,14 +18,22 @@ export class ClipboardItemComponent implements OnInit {
     this.newData = this.note.data;
   }
 
+  /* user events */
+
   onDelete() {
     // todo 
 
   }
 
-  onBeginEdit() {
+  onBeginEdit(event: MouseEvent) {
     console.log('onBeginEdit()');
     this.isEditing = true;
+    //console.log(event);
+
+
+    setTimeout(() => {
+      document.getElementById(`${this.note.uid}`).focus();
+    }, 1);
   }
 
   onCopy() {
@@ -36,9 +44,9 @@ export class ClipboardItemComponent implements OnInit {
     textArea.value = this.note.data;
     document.body.appendChild(textArea);
     textArea.select();
-    document.execCommand('Copy');
+    document.execCommand('copy');
     textArea.remove();
-    // todo - show 'Copied'
+    // todo - show msg 'Copied'
 
   }
 
@@ -54,6 +62,8 @@ export class ClipboardItemComponent implements OnInit {
     this.isEditing = false;
     this.newData = this.note.data;
   }
+
+  /* end of events */
 
   canEnableSave() {
     return this.isEditing && !this.isSaving && this.newData !== this.note.data;

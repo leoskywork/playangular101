@@ -3,8 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Note } from '../models/note';
 import { Constants } from '../common/constants'
+import { Note } from '../models/note';
+import { ApiResult } from '../models/api-result';
 
 @Injectable({
   providedIn: 'root'
@@ -13,31 +14,7 @@ export class NoteService {
 
   constructor(private http: HttpClient) { }
 
-  getNotes(date: Date): Observable<Note[]> {
-    const temp = [
-      {
-        "uid": "90a8bb11-6b1e-4260-a228-82069ee5dcb3",
-        "userId": "u086001",
-        "createdAt": new Date("2019-07-18T11:28:52.6489109+08:00"),
-        "data": "test678910 11"
-      },
-      {
-        "uid": "aef2b48d-db52-4f07-acdc-af490d035a9e",
-        "userId": "u086001",
-        "createdAt": new Date("2019-07-19T15:28:32.3871758+08:00"),
-        "data": "test678910 11 12",
-        hasUpdated: true,
-        lastUpdatedBy: "u086002",
-        lastUpdatedAt: new Date("2019-07-19T16:39:32.3871758+08:00")
-      },
-      {
-        "uid": "26aaa648-d533-484c-84f7-f6f81214fa24",
-        "userId": "u086002",
-        "createdAt": new Date("2019-07-19T15:28:38.9301478+08:00"),
-        "data": "test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222 test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222 test 678910 11 12 222test 678910 11 12 222 test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222test 678910 11 12 222"
-      }
-    ];
-
+  getNotes(date: Date): Observable<ApiResult<Note[]>> {
     // const headers = new HttpHeaders();
     // headers.append(Constants.LskSessionHeader, Constants.LskSessionDev); //not working
     const options = {
@@ -47,9 +24,7 @@ export class NoteService {
       })
     }
 
-    // return this.http.get<Note[]>(Constants.NotesUrlDev, options);
-
-    return this.http.get<Note[]>(Constants.NotesUrlDev, options).pipe(
+    return this.http.get<ApiResult<Note[]>>(Constants.NotesUrlDev, options).pipe(
       catchError(this.handleError)
     );
   }

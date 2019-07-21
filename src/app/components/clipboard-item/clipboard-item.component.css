@@ -69,14 +69,14 @@
 
 /* note item */
 
-.note{
+.note-item{
     background-color: lightblue;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
 }
 
-.note .author{
+.note-item .author{
     /* min-width: 80px; */
     display: inline-block;
     color: slateblue;
@@ -85,16 +85,16 @@
     cursor: pointer;
 }
 
-.note .created-at{
+.note-item .created-at{
     padding-left: 10px;
 }
 
-.note .data-readonly{
+.note-item .data-readonly{
     padding: 10px 0;
     color: darkslategray;
 }
 
-.note .update-info{
+.note-item .update-info{
     text-align: right;
     display: block;
     margin-top: 10px;

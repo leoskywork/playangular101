@@ -15,9 +15,14 @@ export class ClipboardComponent implements OnInit {
 
   ngOnInit() {
     this.isLoadingNotes = true;
-    this.noteService.getNotes(new Date()).subscribe(data => {
+    this.noteService.getNotes(new Date()).subscribe(result => {
       this.isLoadingNotes = false;
-      this.notes = data;
+      if (result.success) {
+        this.notes = result.data;
+      } else {
+        //todo - handle this in one place? in service class??
+        console.log(result.message);
+      }
     }, error => {
       this.isLoadingNotes = false;
       this.onAjaxError(error, { source: 'init - get notes', params: 'todo...' });
