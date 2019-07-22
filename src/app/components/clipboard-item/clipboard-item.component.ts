@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Note } from 'src/app/models/note';
+import { Note } from '../../models/note';
+import { NoteService } from '../../services/note.service';
 
 @Component({
   selector: 'app-clipboard-item',
@@ -14,7 +15,7 @@ export class ClipboardItemComponent implements OnInit {
   isConfirmDeleting: boolean;
   isDeleting: boolean;
 
-  constructor() { }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit() {
     this.newData = this.note.data;
@@ -78,15 +79,9 @@ export class ClipboardItemComponent implements OnInit {
     textArea.remove();
     // todo - show msg 'Copied' in a tooltip
     //   - ref https://www.w3schools.com/css/css_tooltip.asp
-
   }
 
-  onSave() {
-    console.log('onSave()');
-    this.isSaving = true;
-    // todo - save to server
 
-  }
 
   onCancelEdit() {
     console.log('onCancel()');
@@ -102,6 +97,27 @@ export class ClipboardItemComponent implements OnInit {
 
   canEnableCancel() {
     return !this.isSaving;
+  }
+
+  // call data access service
+
+  onSave() {
+    console.log('onSave()');
+    this.isSaving = true;
+    const newNote = Object.assign({}, this.note);
+    newNote.data = this.newData;
+    this.noteService.updateNote(newNote).subscribe(result => {
+      this.isSaving = false;
+      if (result.success) {
+        this.note = result.data;
+        this.isEditing = false;
+      } else {
+        console.log('todo...' + result.message);
+      }
+    }, error => {
+      console.log('todo...' + error);
+      this.isSaving = false;
+    });
   }
 
 }
