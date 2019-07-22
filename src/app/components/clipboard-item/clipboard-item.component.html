@@ -11,8 +11,8 @@
         </div>
         <div class="action-bar" [hidden]='!isConfirmDeleting'>
             <!-- <button type="button" class="lsk-btn button-titled" (click)='onCancelDelete()'>Cancel</button> -->
-            <button type="button" class="lsk-btn-danger button-titled" (click)='onConfirmedDelete()'
-                (mouseleave)='onMouseLeaveDelete()'>Delete</button>
+            <button type="button" id='confirm-delete-note' class="lsk-btn-danger button-titled"
+                (click)='onConfirmedDelete()' (mouseleave)='onMouseLeaveDelete($event)'>Delete</button>
         </div>
         <div class='action-bar' [hidden]='!isDeleting'>
             <label class="progress-message">Deleting...</label>

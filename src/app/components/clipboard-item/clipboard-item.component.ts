@@ -29,9 +29,9 @@ export class ClipboardItemComponent implements OnInit {
     this.isConfirmDeleting = true;
   }
 
-  onCancelDelete() {
-    this.isConfirmDeleting = false;
-  }
+  // onCancelDelete() {
+  //   this.isConfirmDeleting = false;
+  // }
 
   onConfirmedDelete() {
     this.isConfirmDeleting = false;
@@ -45,12 +45,12 @@ export class ClipboardItemComponent implements OnInit {
 
   }
 
-  onMouseLeaveDelete() {
+  onMouseLeaveDelete(event: MouseEvent) {
     console.log('delete - mouse leave');
     // todo - do this by css, ease out
     setTimeout(() => {
       this.isConfirmDeleting = false;
-    }, 200);
+    }, 1000); //the timeout here nee to sync with the value in CSS transition
   }
 
   onBeginEdit(event: MouseEvent) {
@@ -72,7 +72,8 @@ export class ClipboardItemComponent implements OnInit {
     textArea.select();
     document.execCommand('copy');
     textArea.remove();
-    // todo - show msg 'Copied'
+    // todo - show msg 'Copied' in a tooltip
+    //   - ref https://www.w3schools.com/css/css_tooltip.asp
 
   }
 
