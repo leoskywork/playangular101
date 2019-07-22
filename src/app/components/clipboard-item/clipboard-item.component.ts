@@ -20,6 +20,10 @@ export class ClipboardItemComponent implements OnInit {
     this.newData = this.note.data;
   }
 
+  hasNewAuthor() {
+    return this.note.hasUpdated && (this.note.lastUpdatedBy !== this.note.createdBy);
+  }
+
   /* user events */
 
   onBeginDelete() {

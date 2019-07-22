@@ -37,7 +37,8 @@
 .note-item .author {
     /* min-width: 80px; */
     display: inline-block;
-    color: slateblue;
+    /* color: slateblue; */
+    color: steelblue;
     font-family: monospace;
     font-size: 1.1em;
     cursor: pointer;
@@ -95,23 +96,19 @@ corresponding to - name, duration, timing-function, delay, iteration-count, dire
 default value    - none, 0       , ease           , 0s   , 1              , normal
 */
 
-/* #confirm-delete-note { */
+/* 
+#confirm-delete-note {  
+    opacity: 0;
 
-/* opacity: 0; */
+    // need to set position to relative to make animation(position changing) work
+    position: relative;
+    animation-name: sliding-from-right;
 
-/* - need to set position to relative to make animation(position changing) work */
-
-/* position: relative; */
-
-/* animation-name: sliding-from-right; */
-
-/* - keep position at the last one of keyframes */
-
-/* animation-fill-mode: forwards; */
-
-/* animation-duration: 1s; */
-
-/* } */
+    // keep position at the last one of keyframes
+    animation-fill-mode: forwards; 
+    animation-duration: 1s; 
+ } 
+ */
 
 @keyframes sliding-from-right {
     0% {

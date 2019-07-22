@@ -25,6 +25,6 @@
     ];
 
 
-
+title='{{ note.hasUpdated?"Current author is "+note.lastUpdatedBy.toUpperCase():"todo..." }}'
 
 */

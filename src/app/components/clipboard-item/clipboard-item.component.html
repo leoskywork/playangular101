@@ -1,7 +1,7 @@
 <div class='note-item'>
     <div>
-        <span class='author' [ngClass]="{'overwrite': note.hasUpdated}"
-            title='{{ note.hasUpdated?"Current author is "+note.lastUpdatedBy.toUpperCase():"todo..." }}'>{{ note.createdBy | uppercase }}</span>
+        <span class='author' [ngClass]="{'overwrite': hasNewAuthor()}"
+            title='{{ hasNewAuthor()?"Not current author":"todo..." }}'>{{ note.createdBy | uppercase }}</span>
         <span class='created-at trivial-info'>{{ note.createdAt | date:'yyyy.MM.dd h:mm a z' }}</span>
         <div class="action-bar" [hidden]='isEditing || isConfirmDeleting || isDeleting'>
             <button type="button" class='button-action lsk-btn' title='Copy' (click)='onCopy()'>C</button>
