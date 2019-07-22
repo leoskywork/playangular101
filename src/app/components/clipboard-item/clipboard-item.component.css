@@ -1,82 +1,54 @@
-.action-bar{
+.action-bar {
     float: right;
 }
 
-.button-action{
-    color: white;
-    border: none;
+.button-action {
+    /* border: none; */
+    /* cursor: pointer; */
+    /* color: white; */
+    /* background-color: deepskyblue; */
     padding: 5px 7px;
     border-radius: 50%;
-    cursor: pointer;
     font-size: 0.6em;
-    background-color: deepskyblue;
-
     /*need work with 'position: relative'*/
     /* bottom: 2px;  */
     /* position: relative; */
 }
 
-.action-bar .button-action{
+.action-bar .button-action {
     margin-left: 8px;
 }
 
-.button-action:hover{
-    background-color: mediumslateblue;
-}
-
-.button-delete{
-    background-color: #e08c8c;
-}
-
-.button-delete:hover{
-    background-color: red;
-}
-
-.titled-action-bar{
+.titled-action-bar {
     display: flex;
     flex-flow: row-reverse;
 }
 
-.button-titled{
-    border: none;
-    color: white;
-    background-color: deepskyblue;
+.button-titled {
+    /* border: none; */
+    /* cursor: pointer; */
+    /* color: white; */
+    /* background-color: deepskyblue; */
     padding: 4px 10px;
     border-radius: 4px;
-    cursor: pointer;
 }
 
-.titled-action-bar .button-titled{
-    margin-left: 10px;
-}
-
-.button-titled:hover{
+/* .button-action:hover .button-titled:hover{
+    color: white;
     background-color: slateblue;
-}
-
-.button-primary{
     background-color: mediumslateblue;
-}
-
-.button-disabled{
-    background-color: lightgray !important;
-    color: darkgray !important;
-    cursor: not-allowed;
-
-    /* insufficient, this only skip mouse action, would also need to skip keyboard action, need to set attr 'disabled' */
-    /* pointer-events: none; */
-}
+} */
 
 /* note item */
 
-.note-item{
+.note-item {
     background-color: lightblue;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
 }
 
-.note-item .author{
+.note-item .author {
     /* min-width: 80px; */
     display: inline-block;
     color: slateblue;
@@ -85,32 +57,36 @@
     cursor: pointer;
 }
 
-.note-item .created-at{
+.note-item .created-at {
     padding-left: 10px;
 }
 
-.note-item .data-readonly{
+.note-item .data-readonly {
     padding: 10px 0;
     color: darkslategray;
 }
 
-.note-item .update-info{
+.note-item .data-deleting {
+    color: gray;
+}
+
+.note-item .update-info {
     text-align: right;
     display: block;
     margin-top: 10px;
 }
 
-.trivial-info{
+.trivial-info {
     font-size: 0.7em;
     font-style: italic;
     color: steelblue;
 }
 
-.overwrite{
+.overwrite {
     text-decoration: line-through;
 }
 
-textarea.data-editor{
+textarea.data-editor {
     padding: 10px;
     width: 100%;
     line-height: 1.4;
@@ -118,4 +94,10 @@ textarea.data-editor{
     resize: vertical;
     /* transition-duration: 2s; */
     /* transition-timing-function: ease-in; */
+}
+
+/* override */
+
+.lsk-btn-danger:hover {
+    background-color: red;
 }

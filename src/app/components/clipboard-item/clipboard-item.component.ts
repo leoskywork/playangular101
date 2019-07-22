@@ -11,6 +11,8 @@ export class ClipboardItemComponent implements OnInit {
   isEditing: boolean;
   newData: string;
   isSaving: boolean;
+  isConfirmDeleting: boolean;
+  isDeleting: boolean;
 
   constructor() { }
 
@@ -20,20 +22,41 @@ export class ClipboardItemComponent implements OnInit {
 
   /* user events */
 
-  onDelete() {
-    // todo 
-    if (confirm(`Please be aware that note(${this.note.data.substr(0, Math.min(5, this.note.data.length))}...) will be deleted`)) {
-      console.log("confirm delete");
-    }
+  onBeginDelete() {
+    // if (confirm(`Are you sure to delete note(${this.note.data.substr(0, Math.min(5, this.note.data.length))}...)?`)) {
+    //   console.log("confirm delete");
+    // }
+    this.isConfirmDeleting = true;
+  }
 
+  onCancelDelete() {
+    this.isConfirmDeleting = false;
+  }
+
+  onConfirmedDelete() {
+    this.isConfirmDeleting = false;
+    this.isDeleting = true;
+    console.log('confirm delete');
+
+    setTimeout(() => {
+      // this.isDeleting = false;
+    }, 2000);
+
+
+  }
+
+  onMouseLeaveDelete() {
+    console.log('delete - mouse leave');
+    // todo - do this by css, ease out
+    setTimeout(() => {
+      this.isConfirmDeleting = false;
+    }, 200);
   }
 
   onBeginEdit(event: MouseEvent) {
     console.log('onBeginEdit()');
     this.isEditing = true;
-    //console.log(event);
-
-
+    console.log(event);
     setTimeout(() => {
       document.getElementById(`${this.note.uid}`).focus();
     }, 1);

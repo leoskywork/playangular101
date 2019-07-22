@@ -1,41 +1,129 @@
 /* You can add global styles to this file, and also import other style files */
 
-*{
+/* ----- html tag override */
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     /* ·`background-color: lightgray; */
     line-height: 1.4;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-
-.text-centered{
-    text-align: center;
-}
-
-h1{
+h1 {
     color: darkslategray;
 }
 
-.app-name{
+/* ----- global classes */
+
+.text-centered {
+    text-align: center;
+}
+
+.app-name {
     color: deepskyblue;
     margin-top: 10px
 }
 
-.inline{
+.inline {
     display: inline;
 }
 
-/* angular hack */
+/* ----- box model */
+
+.margin-l-10 {
+    margin-left: 10px;
+}
+
+/* ---- messaging */
+
+.loading-message {
+    text-align: center;
+    font-size: larger;
+    color: gray;
+    height: 100px;
+    line-height: 100px;
+}
+
+.progress-message {
+    font-size: 0.8em;
+    font-style: italic;
+    color: black;
+}
+
+/* ----- button */
+
+/* .lsk-btn-color{
+    color:white;
+    background-color: deepskyblue;
+} */
+
+.lsk-btn, .lsk-btn-primary, .lsk-btn-delete, .lsk-btn-danger {
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.lsk-btn {
+    background-color: deepskyblue;
+}
+
+.lsk-btn:hover {
+    color: white;
+    background-color: mediumslateblue;
+}
+
+.lsk-btn-primary {
+    background-color: mediumslateblue;
+}
+
+.lsk-btn-primary:hover {
+    background-color: slateblue;
+}
+
+.lsk-btn-delete {
+    background-color: #e08c8c;
+}
+
+.lsk-btn-delete:hover {
+    background-color: red;
+}
+
+.lsk-btn-danger {
+    background-color: red;
+}
+
+.lsk-btn-danger:hover {
+    background-color: orangered;
+}
+
+/* ensure this is placed at last so it's not overrode */
+
+/* .button-danger{
+    color:white;
+    background-color: red;
+} */
+
+.button-disabled {
+    background-color: lightgray !important;
+    color: darkgray !important;
+    cursor: not-allowed;
+    /* insufficient, this only skip mouse action, would also need to skip keyboard action, need to set attr 'disabled' */
+    /* pointer-events: none; */
+}
+
+/* ----- angular hack */
+
 /* ensure [hidden] binding works */
-[hidden]{
+
+[hidden] {
     display: none !important;
 }

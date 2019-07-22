@@ -8,11 +8,3 @@
     text-align: center;
     cursor: pointer;
 }
-
-.loading-message{
-    text-align: center;
-    font-size: larger;
-    color: gray;
-    height: 100px;
-    line-height: 100px;
-}
