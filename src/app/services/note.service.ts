@@ -19,27 +19,27 @@ export class NoteService {
     // headers.append(Constants.LskSessionHeader, Constants.LskSessionDev); //not working - because instance of HttpHeaders is immutable!!
     // headers.append('Content-Type', 'application/json');
 
-    return this.http.get<ApiResult<Note[]>>(Constants.NotesUrlDev, { headers: this.defaultHeaders() }).pipe(catchError(this.handleError));
+    return this.http.get<ApiResult<Note[]>>(Constants.notesUrlDev, { headers: this.defaultHeaders() }).pipe(catchError(this.handleError));
   }
 
   updateNote(note: Note): Observable<ApiResult<Note>> {
-    return this.http.put<ApiResult<Note>>(Constants.NotesUrlDev, note, { headers: this.defaultHeaders() }).pipe(catchError(this.handleError));
+    return this.http.put<ApiResult<Note>>(Constants.notesUrlDev, note, { headers: this.defaultHeaders() }).pipe(catchError(this.handleError));
   }
 
   deleteNote(note: Note): Observable<ApiResult<string>> {
-    const url = `${Constants.NotesUrlDev}/${note.uid}`
+    const url = `${Constants.notesUrlDev}/${note.uid}`
     return this.http.delete<ApiResult<string>>(url, { headers: this.defaultHeaders() }).pipe(catchError(this.handleError));
   }
 
   addNote(note: Note): Observable<ApiResult<Note>> {
-    return this.http.post<ApiResult<Note>>(Constants.NotesUrlDev, note, { headers: this.defaultHeaders() }).pipe(catchError(this.handleError));
+    return this.http.post<ApiResult<Note>>(Constants.notesUrlDev, note, { headers: this.defaultHeaders() }).pipe(catchError(this.handleError));
   }
 
 
   private defaultHeaders(): HttpHeaders {
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      'lsk-session-id': Constants.LskSessionDev
+      'lsk-session-id': Constants.lskSessionDev
     });
   }
 

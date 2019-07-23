@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from '../../models/note';
 import { NoteService } from '../../services/note.service';
+import { EventArgs, EventType } from '../../models/app-global';
 
 @Component({
   selector: 'app-clipboard-item',
@@ -8,6 +9,9 @@ import { NoteService } from '../../services/note.service';
   styleUrls: ['./clipboard-item.component.css']
 })
 export class ClipboardItemComponent implements OnInit {
+  @Output() onManipulateNote: EventEmitter<
+    EventArgs<Note>
+  > = new EventEmitter();
   @Input() note: Note;
   isEditing: boolean;
   newData: string;
@@ -15,14 +19,16 @@ export class ClipboardItemComponent implements OnInit {
   isConfirmDeleting: boolean;
   isDeleting: boolean;
 
-  constructor(private noteService: NoteService) { }
+  constructor(private noteService: NoteService) {}
 
   ngOnInit() {
     this.newData = this.note.data;
   }
 
   hasNewAuthor() {
-    return this.note.hasUpdated && (this.note.lastUpdatedBy !== this.note.createdBy);
+    return (
+      this.note.hasUpdated && this.note.lastUpdatedBy !== this.note.createdBy
+    );
   }
 
   /* user events */
@@ -31,35 +37,28 @@ export class ClipboardItemComponent implements OnInit {
     // if (confirm(`Are you sure to delete note(${this.note.data.substr(0, Math.min(5, this.note.data.length))}...)?`)) {
     //   console.log("confirm delete");
     // }
+
     this.isConfirmDeleting = true;
   }
 
-  // onCancelDelete() {
-  //   this.isConfirmDeleting = false;
-  // }
-
   onConfirmedDelete() {
+    // console.log('confirm delete');
     this.isConfirmDeleting = false;
     this.isDeleting = true;
-    console.log('confirm delete');
-
-    setTimeout(() => {
-      // this.isDeleting = false;
-    }, 2000);
-
-
+    //this.manipulateNoteEvent.emit({ type: EventType.deleteNote, args: this.note });
+    this.onManipulateNote.emit(new EventArgs(EventType.deleteNote, this.note));
   }
 
   onMouseLeaveDelete(event: MouseEvent) {
-    console.log('delete - mouse leave');
-    // todo - do this by css, ease out
+    // console.log('delete - mouse leave');
+
     setTimeout(() => {
       this.isConfirmDeleting = false;
-    }, 1000); //the timeout here nee to sync with the value in CSS transition
+    }, 1000); //the timeout here need to sync with the value in CSS transition
   }
 
   onBeginEdit(event: MouseEvent) {
-    console.log('onBeginEdit()');
+    // console.log('onBeginEdit()');
     this.isEditing = true;
     console.log(event);
     setTimeout(() => {
@@ -81,12 +80,33 @@ export class ClipboardItemComponent implements OnInit {
     //   - ref https://www.w3schools.com/css/css_tooltip.asp
   }
 
-
-
   onCancelEdit() {
-    console.log('onCancel()');
+    // console.log('onCancelEdit()');
     this.isEditing = false;
     this.newData = this.note.data;
+  }
+
+  onSave() {
+    console.log('onSave()');
+    this.isSaving = true;
+    const newNote = Object.assign({}, this.note);
+    newNote.data = this.newData;
+    this.noteService.updateNote(newNote).subscribe(
+      result => {
+        this.isSaving = false;
+        if (result.success) {
+          this.note = result.data;
+          this.isEditing = false;
+        } else {
+          console.log('todo...' + result.message);
+        }
+        this.onManipulateNote.emit({ type: EventType.updatedNote });
+      },
+      error => {
+        this.isSaving = false;
+        console.log('todo...' + error);
+      }
+    );
   }
 
   /* end of events */
@@ -98,27 +118,4 @@ export class ClipboardItemComponent implements OnInit {
   canEnableCancel() {
     return !this.isSaving;
   }
-
-  // call data access service
-
-  onSave() {
-    console.log('onSave()');
-    this.isSaving = true;
-    const newNote = Object.assign({}, this.note);
-    newNote.data = this.newData;
-    this.noteService.updateNote(newNote).subscribe(result => {
-      this.isSaving = false;
-      if (result.success) {
-        this.note = result.data;
-        this.isEditing = false;
-        //todo - send out event so its parent can reload data
-      } else {
-        console.log('todo...' + result.message);
-      }
-    }, error => {
-      console.log('todo...' + error);
-      this.isSaving = false;
-    });
-  }
-
 }
