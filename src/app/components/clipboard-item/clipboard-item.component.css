@@ -62,8 +62,8 @@
 .note-item .data-readonly {
     padding: 10px 0;
     color: darkslategray;
+    /* break-word not work on Edge, so break-all here */
     word-break: break-all;
-    /* break-word not work on Edge */
 }
 
 .note-item .data-deleting {

@@ -30,9 +30,9 @@ h1 {
 
 .app-name {
     padding: 20px 0;
-    background-color: deepskyblue;
     /* color: deepskyblue; */
     color: white;
+    background-color: deepskyblue;
 }
 
 .inline {
