@@ -17,14 +17,10 @@ export class ClipboardComponent implements OnInit {
 
   ngOnInit() {
     this.isLoadingNotes = true;
-    this.getNotes(new Date(), 'init view', _ => (this.isLoadingNotes = false));
+    this.getNotes(new Date(), 'init view of clipboard', _ => (this.isLoadingNotes = false));
   }
 
-  getNotes(
-    date: Date,
-    caller: string,
-    onAjaxReturned?: (success: boolean) => void
-  ) {
+  getNotes(date: Date, caller: string, onAjaxReturned?: (success: boolean) => void) {
     this.noteService.getNotes(date).subscribe(
       result => {
         onAjaxReturned(result.success);

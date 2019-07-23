@@ -22,28 +22,20 @@ export class NoteService {
     // headers.append(Constants.LskSessionHeader, Constants.LskSessionDev);
     // headers.append('Content-Type', 'application/json'); //not working - because instance of HttpHeaders is immutable!!
 
-    return this.http
-      .get<ApiResult<Note[]>>(Constants.notesUrlDev, this.httpOption)
-      .pipe(catchError(this.handleError));
+    return this.http.get<ApiResult<Note[]>>(Constants.getNoteApiUrl(), this.httpOption).pipe(catchError(this.handleError));
   }
 
   updateNote(note: Note): Observable<ApiResult<Note>> {
-    return this.http
-      .put<ApiResult<Note>>(Constants.notesUrlDev, note, this.httpOption)
-      .pipe(catchError(this.handleError));
+    return this.http.put<ApiResult<Note>>(Constants.getNoteApiUrl(), note, this.httpOption).pipe(catchError(this.handleError));
   }
 
   deleteNote(note: Note): Observable<LightResult> {
-    const url = `${Constants.notesUrlDev}/${note.uid}`;
-    return this.http
-      .delete<LightResult>(url, this.httpOption)
-      .pipe(catchError(this.handleError));
+    const url = `${Constants.getNoteApiUrl()}/${note.uid}`;
+    return this.http.delete<LightResult>(url, this.httpOption).pipe(catchError(this.handleError));
   }
 
   addNote(note: Note): Observable<ApiResult<Note>> {
-    return this.http
-      .post<ApiResult<Note>>(Constants.notesUrlDev, note, this.httpOption)
-      .pipe(catchError(this.handleError));
+    return this.http.post<ApiResult<Note>>(Constants.getNoteApiUrl(), note, this.httpOption).pipe(catchError(this.handleError));
   }
 
   private handleError<T>(requestSource: string, requestArgs: T) {
