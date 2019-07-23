@@ -111,6 +111,7 @@ export class ClipboardItemComponent implements OnInit {
       if (result.success) {
         this.note = result.data;
         this.isEditing = false;
+        //todo - send out event so its parent can reload data
       } else {
         console.log('todo...' + result.message);
       }

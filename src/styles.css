@@ -29,8 +29,10 @@ h1 {
 }
 
 .app-name {
-    color: deepskyblue;
-    margin-top: 10px
+    padding: 20px 0;
+    background-color: deepskyblue;
+    /* color: deepskyblue; */
+    color: white;
 }
 
 .inline {
