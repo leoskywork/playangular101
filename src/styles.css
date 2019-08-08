@@ -3,62 +3,64 @@
 /* ----- html tag override */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    /* ·`background-color: lightgray; */
-    line-height: 1.4;
-    font-family: Arial, Helvetica, sans-serif;
+  /* ·`background-color: lightgray; */
+  line-height: 1.4;
+  font-family: Arial, Helvetica, sans-serif;
+  /* prevent the header is narrower than note view in small screen */
+  min-width: 360px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h1 {
-    color: darkslategray;
+  color: darkslategray;
 }
 
 /* ----- global classes */
 
 .text-centered {
-    text-align: center;
+  text-align: center;
 }
 
 .app-name {
-    padding: 5px 0;
-    /* color: deepskyblue; */
-    color: white;
-    background-color: deepskyblue;
+  padding: 5px 0;
+  /* color: deepskyblue; */
+  color: white;
+  background-color: deepskyblue;
 }
 
 .inline {
-    display: inline;
+  display: inline;
 }
 
 /* ----- box model */
 
 .margin-l-10 {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 /* ---- messaging */
 
 .loading-message {
-    text-align: center;
-    font-size: larger;
-    color: gray;
-    height: 100px;
-    line-height: 100px;
+  text-align: center;
+  font-size: larger;
+  color: gray;
+  height: 100px;
+  line-height: 100px;
 }
 
 .progress-message {
-    font-size: 0.8em;
-    font-style: italic;
-    color: black;
+  font-size: 0.8em;
+  font-style: italic;
+  color: black;
 }
 
 /* ----- button */
@@ -68,43 +70,46 @@ h1 {
     background-color: deepskyblue;
 } */
 
-.lsk-btn, .lsk-btn-primary, .lsk-btn-delete, .lsk-btn-danger {
-    border: none;
-    cursor: pointer;
-    color: white;
+.lsk-btn,
+.lsk-btn-primary,
+.lsk-btn-delete,
+.lsk-btn-danger {
+  border: none;
+  cursor: pointer;
+  color: white;
 }
 
 .lsk-btn {
-    background-color: deepskyblue;
+  background-color: deepskyblue;
 }
 
 .lsk-btn:hover {
-    color: white;
-    background-color: mediumslateblue;
+  color: white;
+  background-color: mediumslateblue;
 }
 
 .lsk-btn-primary {
-    background-color: mediumslateblue;
+  background-color: mediumslateblue;
 }
 
 .lsk-btn-primary:hover {
-    background-color: slateblue;
+  background-color: slateblue;
 }
 
 .lsk-btn-delete {
-    background-color: #e08c8c;
+  background-color: #e08c8c;
 }
 
 .lsk-btn-delete:hover {
-    background-color: red;
+  background-color: red;
 }
 
 .lsk-btn-danger {
-    background-color: red;
+  background-color: red;
 }
 
 .lsk-btn-danger:hover {
-    background-color: orangered;
+  background-color: orangered;
 }
 
 /* ensure this is placed at last so it's not overrode */
@@ -115,11 +120,11 @@ h1 {
 } */
 
 .button-disabled {
-    background-color: lightgray !important;
-    color: darkgray !important;
-    cursor: not-allowed;
-    /* insufficient, this only skip mouse action, would also need to skip keyboard action, need to set attr 'disabled' */
-    /* pointer-events: none; */
+  background-color: lightgray !important;
+  color: darkgray !important;
+  cursor: not-allowed;
+  /* insufficient, this only skip mouse action, would also need to skip keyboard action, need to set attr 'disabled' */
+  /* pointer-events: none; */
 }
 
 /* ----- angular hack */
@@ -127,5 +132,5 @@ h1 {
 /* ensure [hidden] binding works */
 
 [hidden] {
-    display: none !important;
+  display: none !important;
 }

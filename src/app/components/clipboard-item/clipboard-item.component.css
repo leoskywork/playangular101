@@ -41,7 +41,8 @@
   margin: 0 auto;
   border-radius: 10px;
   max-width: 960px;
-  min-width: 360px;
+  /* don't forget to update body.min-width if you changed this */
+  min-width: 320px;
 
   border: #c1c1c1 1px solid;
 }
@@ -94,6 +95,7 @@ textarea.data-editor {
   line-height: 1.4;
   border: deepskyblue 1px solid;
   resize: vertical;
+  font-size: 16px;
 }
 
 /* ----- override */
