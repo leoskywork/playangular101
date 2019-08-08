@@ -3,15 +3,15 @@ export class Constants {
   public static readonly lskSessionHeader: string = 'lsk-session-id';
   public static readonly lskSessionDev: string = 'dev001abc';
 
-  private static readonly baseUrlDev: string = 'http://localhost:57005';
-  private static readonly baseUrlPilot: string = 'http://leoskywork.com:84/api';
-  private static readonly baseUrlProd: string = 'http://leoskywork.com/api';
+  private static readonly baseUrlDev: string = 'http://localhost:57005/';
+  private static readonly baseUrlPilot: string = 'http://leoskywork.com:84/api/';
+  private static readonly baseUrlProd: string = 'http://leoskywork.com/api/';
 
   public static readonly isDev: boolean = true;
   public static readonly isPilot: boolean = true;
 
   public static getNoteApiUrl(): string {
-    return this.getBaseApiUrl() + '/note/';
+    return this.getBaseApiUrl() + 'note/';
   }
 
   public static getBaseApiUrl(): string {
@@ -20,7 +20,7 @@ export class Constants {
     return Constants.baseUrlProd;
   }
 
-  public static getAppPhase(): string {
+  public static getAppEnv(): string {
     if (Constants.isDev) return 'Dev';
     if (Constants.isPilot) return 'Pilot';
     return '';

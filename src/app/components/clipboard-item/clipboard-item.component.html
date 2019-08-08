@@ -4,18 +4,18 @@
       <span class="author" [ngClass]="{ overwrite: hasNewAuthor() }" title="{{ hasNewAuthor() ? 'Not current author' : 'todo...' }}">{{
         note.createdBy | uppercase
       }}</span>
-      <span class="created-at trivial-info">{{ note.createdAt | date: 'yyyy.MM.dd h:mm a z' }}</span>
+      <span class="created-at trivial-info">{{ note.createdAt | date: 'yyyy.MM.dd h:mm a' }}</span>
       <div class="action-bar" [hidden]="isEditing || isConfirmDeleting || isDeleting">
         <button type="button" class="lsk-btn button-action" title="Copy" (click)="onCopy()">C</button>
-        <button type="button" class="lsk-btn button-action" title="Edit" (click)="onBeginEdit($event)">E</button>
-        <button type="button" class="lsk-btn-delete button-action" title="Delete" (click)="onBeginDelete()">X</button>
+        <button type="button" class="lsk-btn button-action margin-l-16" title="Edit" (click)="onBeginEdit($event)">E</button>
+        <button type="button" class="lsk-btn-delete button-action margin-l-16" title="Delete" (click)="onBeginDelete()">X</button>
       </div>
       <div class="action-bar" [hidden]="!isConfirmDeleting">
         <button type="button" id="confirm-delete-note" class="lsk-btn-danger button-titled" (click)="onConfirmedDelete()">
           Delete
           <!--         (mouseleave)="onMouseLeaveDelete($event)"   -->
         </button>
-        <button type="button" class="lsk-btn button-titled margin-l-10" title="Back" (click)="onCancelDelete()">>></button>
+        <button type="button" class="lsk-btn button-titled margin-l-16" title="Back" (click)="onCancelDelete()">>></button>
       </div>
       <div class="action-bar" [hidden]="!isDeleting">
         <label class="progress-message">Deleting...</label>
@@ -30,7 +30,7 @@
         <div class="titled-action-bar">
           <button
             type="button"
-            class="lsk-btn button-titled margin-l-10"
+            class="lsk-btn button-titled margin-l-16"
             (click)="onCancelEdit()"
             [ngClass]="{ 'button-disabled': !canEnableCancel() }"
             [disabled]="!canEnableCancel()"

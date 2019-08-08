@@ -47,6 +47,10 @@ h1 {
   margin-left: 10px;
 }
 
+.margin-l-16 {
+  margin-left: 16px;
+}
+
 /* ---- messaging */
 
 .loading-message {

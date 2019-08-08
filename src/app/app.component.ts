@@ -7,7 +7,7 @@ import { Constants } from './common/constants';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string = Constants.getAppPhase() + ' Angular 101';
+  title: string = Constants.getAppEnv() + ' Angular 101';
   createdAt: Date = new Date('2019-7-15');
 
   constructor() {

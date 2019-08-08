@@ -23,7 +23,8 @@ export class ClipboardComponent implements OnInit {
   getNotes(date: Date, caller: string, onAjaxReturned?: (success: boolean) => void) {
     this.noteService.getNotes(date).subscribe(
       result => {
-        onAjaxReturned(result.success);
+        if (onAjaxReturned) onAjaxReturned(result.success);
+
         if (result.success) {
           this.notes = result.data;
         } else {
@@ -31,7 +32,8 @@ export class ClipboardComponent implements OnInit {
         }
       },
       error => {
-        onAjaxReturned(false);
+        if (onAjaxReturned) onAjaxReturned(false);
+
         this.onAjaxError(error, {
           source: caller,
           params: date

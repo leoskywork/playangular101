@@ -11,9 +11,9 @@
   /* position: relative; */
 }
 
-.action-bar .button-action {
-  margin-left: 8px;
-}
+/* .action-bar .button-action {
+  margin-left: 16px;
+} */
 
 .titled-action-bar {
   display: flex;

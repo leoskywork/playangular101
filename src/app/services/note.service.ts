@@ -30,7 +30,8 @@ export class NoteService {
   }
 
   deleteNote(note: Note): Observable<LightResult> {
-    const url = `${Constants.getNoteApiUrl()}${note.uid}`;
+    // const url = `${Constants.getNoteApiUrl()}${note.uid}`;
+    const url = `${Constants.getBaseApiUrl()}restfulNote/${note.uid}`;
     return this.http.delete<LightResult>(url, this.httpOption).pipe(catchError(this.handleError));
   }
 
