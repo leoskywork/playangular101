@@ -55,6 +55,11 @@ export class ClipboardComponent implements OnInit {
           if (result.success) {
             //todo - show delete success message
             console.log(result.message);
+            const noteIndex = this.notes.indexOf(event.args);
+            if (noteIndex > -1) {
+              this.notes.splice(noteIndex, 1);
+            }
+            //todo - reload data
           } else {
             this.onAjaxReturnFalsyResult(result);
           }

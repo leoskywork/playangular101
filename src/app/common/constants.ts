@@ -3,17 +3,21 @@ export class Constants {
   public static readonly lskSessionHeader: string = 'lsk-session-id';
   public static readonly lskSessionDev: string = 'dev001abc';
 
-  private static readonly notesUrlDev: string = 'http://localhost:57005/note';
-  private static readonly notesUrlPilot: string = 'http://leoskywork.com:84/api/note';
-  private static readonly notesUrlProd: string = 'http://leoskywork.com/api/note';
+  private static readonly baseUrlDev: string = 'http://localhost:57005';
+  private static readonly baseUrlPilot: string = 'http://leoskywork.com:84/api';
+  private static readonly baseUrlProd: string = 'http://leoskywork.com/api';
 
-  public static readonly isDev: boolean = false;
+  public static readonly isDev: boolean = true;
   public static readonly isPilot: boolean = true;
 
   public static getNoteApiUrl(): string {
-    if (Constants.isDev) return Constants.notesUrlDev;
-    if (Constants.isPilot) return Constants.notesUrlPilot;
-    return Constants.notesUrlProd;
+    return this.getBaseApiUrl() + '/note/';
+  }
+
+  public static getBaseApiUrl(): string {
+    if (Constants.isDev) return Constants.baseUrlDev;
+    if (Constants.isPilot) return Constants.baseUrlPilot;
+    return Constants.baseUrlProd;
   }
 
   public static getAppPhase(): string {

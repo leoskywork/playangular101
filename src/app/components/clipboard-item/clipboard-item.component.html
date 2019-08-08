@@ -1,45 +1,58 @@
 <div class="note-item-wrap">
-    <div class='note-item'>
-        <div>
-            <span class='author' [ngClass]="{'overwrite': hasNewAuthor()}"
-                title='{{ hasNewAuthor()?"Not current author":"todo..." }}'>{{ note.createdBy | uppercase }}</span>
-            <span class='created-at trivial-info'>{{ note.createdAt | date:'yyyy.MM.dd h:mm a z' }}</span>
-            <div class="action-bar" [hidden]='isEditing || isConfirmDeleting || isDeleting'>
-                <button type="button" class='button-action lsk-btn' title='Copy' (click)='onCopy()'>C</button>
-                <button type="button" class='button-action lsk-btn' title='Edit'
-                    (click)='onBeginEdit($event)'>E</button>
-                <button type="button" class='button-action lsk-btn-delete' title='Delete'
-                    (click)='onBeginDelete()'>X</button>
-            </div>
-            <div class="action-bar" [hidden]='!isConfirmDeleting'>
-                <!-- <button type="button" class="lsk-btn button-titled" (click)='onCancelDelete()'>Cancel</button> -->
-                <button type="button" id='confirm-delete-note' class="lsk-btn-danger button-titled"
-                    (click)='onConfirmedDelete()' (mouseleave)='onMouseLeaveDelete($event)'>Delete</button>
-            </div>
-            <div class='action-bar' [hidden]='!isDeleting'>
-                <label class="progress-message">Deleting...</label>
-            </div>
-        </div>
-        <div>
-            <p *ngIf='!isEditing' class='data-readonly' [ngClass]="{'data-deleting': isDeleting}">{{ note.data }} </p>
-            <form *ngIf='isEditing'>
-                <!-- the value of name attribute should be the same as the mode-->
-                <textarea id='{{ note.uid }}' class='data-editor' name='newData' [(ngModel)]='newData' rows='10'
-                    [disabled]='isSaving'></textarea>
-                <br>
-                <div class='titled-action-bar'>
-                    <button type='button' class='lsk-btn button-titled margin-l-10' (click)='onCancelEdit()'
-                        [ngClass]="{'button-disabled':!canEnableCancel()}"
-                        [disabled]='!canEnableCancel()'>Cancel</button>
-                    <button type='submit' class='lsk-btn-primary button-titled' (click)='onSave()'
-                        [ngClass]="{'button-disabled':!canEnableSave()}" [disabled]='!canEnableSave()'>Save</button>
-                </div>
-            </form>
-            <span class='update-info trivial-info' *ngIf='note.hasUpdated'>
-                <!-- don't use unified date format here, just for fun -->
-                Last edited by {{ note.lastUpdatedBy | uppercase }} at
-                {{ note.lastUpdatedAt | date:'yyyy.MM.dd H:mm z' }}
-            </span>
-        </div>
+  <div class="note-item">
+    <div>
+      <span class="author" [ngClass]="{ overwrite: hasNewAuthor() }" title="{{ hasNewAuthor() ? 'Not current author' : 'todo...' }}">{{
+        note.createdBy | uppercase
+      }}</span>
+      <span class="created-at trivial-info">{{ note.createdAt | date: 'yyyy.MM.dd h:mm a z' }}</span>
+      <div class="action-bar" [hidden]="isEditing || isConfirmDeleting || isDeleting">
+        <button type="button" class="lsk-btn button-action" title="Copy" (click)="onCopy()">C</button>
+        <button type="button" class="lsk-btn button-action" title="Edit" (click)="onBeginEdit($event)">E</button>
+        <button type="button" class="lsk-btn-delete button-action" title="Delete" (click)="onBeginDelete()">X</button>
+      </div>
+      <div class="action-bar" [hidden]="!isConfirmDeleting">
+        <button type="button" id="confirm-delete-note" class="lsk-btn-danger button-titled" (click)="onConfirmedDelete()">
+          Delete
+          <!--         (mouseleave)="onMouseLeaveDelete($event)"   -->
+        </button>
+        <button type="button" class="lsk-btn button-titled margin-l-10" title="Back" (click)="onCancelDelete()">>></button>
+      </div>
+      <div class="action-bar" [hidden]="!isDeleting">
+        <label class="progress-message">Deleting...</label>
+      </div>
     </div>
+    <div>
+      <p *ngIf="!isEditing" class="data-readonly" [ngClass]="{ 'data-deleting': isDeleting }">{{ note.data }}</p>
+      <form *ngIf="isEditing">
+        <!-- the value of name attribute should be the same as the mode-->
+        <textarea id="{{ note.uid }}" class="data-editor" name="newData" [(ngModel)]="newData" rows="10" [disabled]="isSaving"></textarea>
+        <br />
+        <div class="titled-action-bar">
+          <button
+            type="button"
+            class="lsk-btn button-titled margin-l-10"
+            (click)="onCancelEdit()"
+            [ngClass]="{ 'button-disabled': !canEnableCancel() }"
+            [disabled]="!canEnableCancel()"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="lsk-btn-primary button-titled"
+            (click)="onSave()"
+            [ngClass]="{ 'button-disabled': !canEnableSave() }"
+            [disabled]="!canEnableSave()"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+      <span class="update-info trivial-info" *ngIf="note.hasUpdated">
+        <!-- don't use unified date format here, just for fun -->
+        Last edited by {{ note.lastUpdatedBy | uppercase }} at
+        {{ note.lastUpdatedAt | date: 'yyyy.MM.dd H:mm z' }}
+      </span>
+    </div>
+  </div>
 </div>

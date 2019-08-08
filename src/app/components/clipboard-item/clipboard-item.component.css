@@ -1,97 +1,99 @@
 .action-bar {
-    float: right;
+  float: right;
 }
 
 .button-action {
-    padding: 5px 7px;
-    border-radius: 50%;
-    font-size: 0.6em;
-    /*need work with 'position: relative'*/
-    /* bottom: 2px;  */
-    /* position: relative; */
+  padding: 5px 7px;
+  border-radius: 50%;
+  font-size: 0.6em;
+  /*need work with 'position: relative'*/
+  /* bottom: 2px;  */
+  /* position: relative; */
 }
 
 .action-bar .button-action {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 .titled-action-bar {
-    display: flex;
-    flex-flow: row-reverse;
+  display: flex;
+  flex-flow: row-reverse;
 }
 
 .button-titled {
-    padding: 4px 10px;
-    border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 4px;
 }
 
 /* ----- note item */
 
 .note-item-wrap {
-    /* display: flex; */
-    /* justify-content: space-around; */
-    margin: 20px;
+  /* display: flex; */
+  /* justify-content: space-around; */
+  margin: 20px;
 }
 
 .note-item {
-    /* background-color: lightblue; */
-    background-color: #e5dddd;
-    padding: 20px;
-    /* margin: 20px 20px 0 20px; */
-    margin: 0 auto;
-    border-radius: 10px;
-    max-width: 960px;
-    min-width: 400px;
+  /* background-color: lightblue; */
+  background-color: #e5dddd;
+  padding: 20px;
+  /* margin: 20px 20px 0 20px; */
+  margin: 0 auto;
+  border-radius: 10px;
+  max-width: 960px;
+  min-width: 360px;
+
+  border: #c1c1c1 1px solid;
 }
 
 .note-item .author {
-    /* color: slateblue; */
-    /* color: steelblue; */
-    /* font-family: monospace; */
-    /* font-size: 1.1em; */
-    cursor: pointer;
-    display: inline-block;
-    color: darkslategray;
-    font-size: 0.8em;
+  /* color: slateblue; */
+  /* color: steelblue; */
+  /* font-family: monospace; */
+  /* font-size: 1.1em; */
+  cursor: pointer;
+  display: inline-block;
+  color: darkslategray;
+  font-size: 0.8em;
 }
 
 .note-item .created-at {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .note-item .data-readonly {
-    padding: 10px 0;
-    color: darkslategray;
-    /* break-word not work on Edge, so break-all here */
-    word-break: break-all;
+  padding: 10px 0;
+  color: darkslategray;
+  /* break-word not work on Edge, so break-all here */
+  word-break: break-all;
 }
 
 .note-item .data-deleting {
-    color: gray;
+  color: gray;
 }
 
 .note-item .update-info {
-    /* text-align: right; */
-    display: block;
-    margin-top: 10px;
+  /* text-align: right; */
+  display: block;
+  margin-top: 10px;
 }
 
 .trivial-info {
-    font-size: 0.7em;
-    font-style: italic;
-    color: steelblue;
+  font-size: 0.7em;
+  font-style: italic;
+  color: steelblue;
 }
 
 .overwrite {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 textarea.data-editor {
-    padding: 10px;
-    width: 100%;
-    line-height: 1.4;
-    border: deepskyblue 1px solid;
-    resize: vertical;
+  padding: 10px;
+  width: 100%;
+  line-height: 1.4;
+  border: deepskyblue 1px solid;
+  resize: vertical;
 }
 
 /* ----- override */
@@ -109,48 +111,51 @@ corresponding to - name, duration, timing-function, delay, iteration-count, dire
 default value    - none, 0       , ease           , 0s   , 1              , normal
 */
 
-/* 
-#confirm-delete-note {  
-    opacity: 0;
+#confirm-delete-note {
+  opacity: 0;
 
-    // need to set position to relative to make animation(position changing) work
-    position: relative;
-    animation-name: sliding-from-right;
+  /* need to set position to relative to make animation(position changing) work */
+  /* position: relative; */
+  animation-name: sliding-from-right;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
 
-    // keep position at the last one of keyframes
-    animation-fill-mode: forwards; 
-    animation-duration: 1s; 
- } 
- */
+  /* keep position at the last one of keyframes */
+  animation-fill-mode: forwards;
+}
 
 @keyframes sliding-from-right {
-    0% {
-        /* right: -10px; */
-        opacity: 0.2;
-    }
-    100% {
-        /* right: 0; */
-        opacity: 1;
-    }
+  0% {
+    /* right: -10px; */
+    opacity: 1;
+  }
+  50% {
+    /* right: -10px; */
+    opacity: 0.6;
+  }
+  100% {
+    /* right: 0; */
+    opacity: 1;
+  }
 }
 
 .note-item form {
-    animation: fade-in 1s linear;
-    animation-fill-mode: forwards;
+  animation: fade-in 1s linear;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fade-in {
-    /* when at 0% */
-    from {
-        opacity: 0;
-    }
-    /* when at 100% */
-    to {
-        opacity: 1;
-    }
+  /* when at 0% */
+  from {
+    opacity: 0;
+  }
+  /* when at 100% */
+  to {
+    opacity: 1;
+  }
 }
 
-/* ----- transition */
+/* ----- transition - not working on mobile phone!!! */
 
 /* 
 shorthand        - transition: arg1 arg2 arg3 arg4, arg21 arg22 arg23 arg24;
@@ -159,15 +164,16 @@ default value    - all     , 0s      , ease           , 0s
 
 take effect when  
    - mouse hover & lose hover(leave) 
-   - item active & lose active??  
-   - what else?? 
+   - item active & lose active ??  
+   - what else ?? 
  
 */
 
+/*
 #confirm-delete-note {
     opacity: 0;
     transition-property: opacity;
-    /* remember to sync the timeout in onMouseLeaveDelete() once updated transition-duration */
+    /* remember to sync the timeout in onMouseLeaveDelete() once updated transition-duration 
     transition-duration: 1s;
     transition-timing-function: linear;
 }
@@ -176,3 +182,5 @@ take effect when
     background-color: red;
     opacity: 1;
 }
+
+*/

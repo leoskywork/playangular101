@@ -9,9 +9,7 @@ import { EventArgs, EventType } from '../../models/app-global';
   styleUrls: ['./clipboard-item.component.css']
 })
 export class ClipboardItemComponent implements OnInit {
-  @Output() onManipulateNote: EventEmitter<
-    EventArgs<Note>
-  > = new EventEmitter();
+  @Output() onManipulateNote: EventEmitter<EventArgs<Note>> = new EventEmitter();
   @Input() note: Note;
   isEditing: boolean;
   newData: string;
@@ -26,9 +24,7 @@ export class ClipboardItemComponent implements OnInit {
   }
 
   hasNewAuthor() {
-    return (
-      this.note.hasUpdated && this.note.lastUpdatedBy !== this.note.createdBy
-    );
+    return this.note.hasUpdated && this.note.lastUpdatedBy !== this.note.createdBy;
   }
 
   /* user events */
@@ -49,12 +45,15 @@ export class ClipboardItemComponent implements OnInit {
     this.onManipulateNote.emit(new EventArgs(EventType.deleteNote, this.note));
   }
 
+  onCancelDelete() {
+    this.isConfirmDeleting = false;
+  }
+
   onMouseLeaveDelete(event: MouseEvent) {
     // console.log('delete - mouse leave');
-
-    setTimeout(() => {
-      this.isConfirmDeleting = false;
-    }, 1000); //the timeout here need to sync with the value in CSS transition
+    // setTimeout(() => {
+    //   this.isConfirmDeleting = false;
+    // }, 1000); //the timeout here need to sync with the value in CSS transition
   }
 
   onBeginEdit(event: MouseEvent) {
