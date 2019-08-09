@@ -26,7 +26,9 @@ export class ClipboardComponent implements OnInit {
         if (onAjaxReturned) onAjaxReturned(result.success);
 
         if (result.success) {
-          this.notes = result.data;
+          // angular no longer provide pipes for filtering or sorting
+          // sort by createdAt desc, typeof a.createdAt is string !!! when running in js code, have to manual convert here
+          this.notes = result.data.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
         } else {
           this.onAjaxReturnFalsyResult(result);
         }
