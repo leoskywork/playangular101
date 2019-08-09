@@ -1,25 +1,26 @@
 class AppGlobal {
-    static current: AppGlobal = new AppGlobal();
-    user: any;
+  static current: AppGlobal = new AppGlobal();
+  user: any;
 
-    getUserFromLocalStorage() {
-        //todo
-    }
+  getUserFromLocalStorage() {
+    //todo
+  }
 }
 
 class EventArgs<T> {
-    type: string;
-    args?: T;
+  type: string;
+  args?: T;
 
-    constructor(type: string, args?: T) {
-        this.type = type;
-        this.args = args;
-    }
+  constructor(type: string, args?: T) {
+    this.type = type;
+    this.args = args;
+  }
 }
 
 class EventType {
-    static readonly deleteNote: string = 'delete-note';
-    static readonly updatedNote: string = 'update-note-completed'
+  static readonly confirmedDeleteNote: string = 'confirmed-delete-note';
+  static readonly afterUpdateNote: string = 'update-note-completed';
+  static readonly submitNewNote: string = 'submit-new-note';
 }
 
-export { AppGlobal, EventArgs, EventType }
+export { AppGlobal, EventArgs, EventType };

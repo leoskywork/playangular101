@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Note } from '../../models/note';
 import { NoteService } from '../../services/note.service';
 import { EventArgs, EventType } from '../../models/app-global';
 import { ApiResult, LightResult } from '../../models/api-result';
+import { AddNoteComponent } from '../add-note/add-note.component';
 
 @Component({
   selector: 'app-clipboard',
@@ -10,6 +11,8 @@ import { ApiResult, LightResult } from '../../models/api-result';
   styleUrls: ['./clipboard.component.css']
 })
 export class ClipboardComponent implements OnInit {
+  @ViewChild(AddNoteComponent, { static: false })
+  private addNote: AddNoteComponent;
   notes: Note[];
   isLoadingNotes: boolean;
 
@@ -35,11 +38,7 @@ export class ClipboardComponent implements OnInit {
       },
       error => {
         if (onAjaxReturned) onAjaxReturned(false);
-
-        this.onAjaxError(error, {
-          source: caller,
-          params: date
-        });
+        this.onAjaxError(error, caller, date);
       }
     );
   }
@@ -48,9 +47,9 @@ export class ClipboardComponent implements OnInit {
     console.log(event);
     if (!event) return;
 
-    if (event.type === EventType.updatedNote) {
+    if (event.type === EventType.afterUpdateNote) {
       this.getNotes(new Date(), event.type);
-    } else if (event.type == EventType.deleteNote) {
+    } else if (event.type == EventType.confirmedDeleteNote) {
       //?? hide note right away? - by remove it from this.notes
       if (!event.args) return;
 
@@ -61,21 +60,34 @@ export class ClipboardComponent implements OnInit {
             console.log(result.message);
             const noteIndex = this.notes.indexOf(event.args);
             if (noteIndex > -1) {
-              this.notes.splice(noteIndex, 1);
+              setTimeout(() => {
+                this.notes.splice(noteIndex, 1);
+              }, 200);
             }
             //todo - reload data
           } else {
             this.onAjaxReturnFalsyResult(result);
           }
         },
-        error => {
-          this.onAjaxError(error, {
-            source: event.type,
-            params: event.args
-          });
-        }
+        error => this.onAjaxError(error, event.type, event.args)
       );
     }
+  }
+
+  onAddNote(event: EventArgs<string>) {
+    if (!event || !event.args) return;
+
+    this.noteService.addNote(new Note(event.args)).subscribe(
+      result => {
+        if (result.success) {
+          this.getNotes(new Date(), 'auto refresh after add note');
+        } else {
+          this.onAjaxReturnFalsyResult(result);
+        }
+        this.addNote.onAddNoteEnd(result.success);
+      },
+      error => this.onAjaxError(error, event.type, event.args)
+    );
   }
 
   onAjaxReturnFalsyResult<T>(result: ApiResult<T> | LightResult) {
@@ -84,10 +96,11 @@ export class ClipboardComponent implements OnInit {
     console.log(result);
   }
 
-  onAjaxError(error: any, request: { source: string; params: any }) {
+  onAjaxError(error: any, requestSource: string, requestParams?: any) {
     //todo - handle error, show to user? should do this in the service class(data access service)
     console.log('on ajax error, details ----->');
     console.log(error);
-    console.log(request);
+    console.log(requestSource);
+    if (requestParams) console.log(requestParams);
   }
 }

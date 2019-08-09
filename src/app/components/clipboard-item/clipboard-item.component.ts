@@ -42,7 +42,7 @@ export class ClipboardItemComponent implements OnInit {
     this.isConfirmDeleting = false;
     this.isDeleting = true;
     //this.manipulateNoteEvent.emit({ type: EventType.deleteNote, args: this.note });
-    this.onManipulateNote.emit(new EventArgs(EventType.deleteNote, this.note));
+    this.onManipulateNote.emit(new EventArgs(EventType.confirmedDeleteNote, this.note));
   }
 
   onCancelDelete() {
@@ -99,7 +99,7 @@ export class ClipboardItemComponent implements OnInit {
         } else {
           console.log('todo...' + result.message);
         }
-        this.onManipulateNote.emit({ type: EventType.updatedNote });
+        this.onManipulateNote.emit({ type: EventType.afterUpdateNote });
       },
       error => {
         this.isSaving = false;
