@@ -11,20 +11,6 @@
   /* position: relative; */
 }
 
-/* .action-bar .button-action {
-  margin-left: 16px;
-} */
-
-.titled-action-bar {
-  display: flex;
-  flex-flow: row-reverse;
-}
-
-.button-titled {
-  padding: 4px 10px;
-  border-radius: 4px;
-}
-
 /* ----- note item */
 
 .note-item-wrap {
@@ -37,7 +23,6 @@
   /* background-color: lightblue; */
   background-color: #e5dddd;
   padding: 20px;
-  /* margin: 20px 20px 0 20px; */
   margin: 0 auto;
   border-radius: 10px;
   max-width: 960px;
@@ -88,22 +73,6 @@
 .overwrite {
   text-decoration: line-through;
 }
-
-textarea.data-editor {
-  padding: 10px;
-  width: 100%;
-  line-height: 1.4;
-  border: deepskyblue 1px solid;
-  resize: vertical;
-  font-size: 16px;
-}
-
-/* ----- override */
-
-/* 
-.lsk-btn-danger:hover {
-    background-color: red;
-} */
 
 /* ----- animation */
 

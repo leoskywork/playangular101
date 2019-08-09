@@ -2,8 +2,7 @@
     <li>{{ note.data }}</li>
 </ul> -->
 
-<div *ngIf='isLoadingNotes' class='loading-message'>
-    Loading Notes...
+<div *ngIf="isLoadingNotes" class="loading-message">
+  Loading Notes...
 </div>
-<app-clipboard-item *ngFor='let note of notes' [note]='note' (onManipulateNote)='onManipulateNote($event)'>
-</app-clipboard-item>
+<app-clipboard-item *ngFor="let note of notes" [note]="note" (onManipulateNote)="onManipulateNote($event)"> </app-clipboard-item>

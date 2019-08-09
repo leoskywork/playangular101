@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* ----- html tag override */
+/* --------------------------------------------------------- html tag override */
 
 * {
   box-sizing: border-box;
@@ -24,7 +24,7 @@ h1 {
   color: darkslategray;
 }
 
-/* ----- global classes */
+/* --------------------------------------------------------- global classes */
 
 .text-centered {
   text-align: center;
@@ -41,7 +41,7 @@ h1 {
   display: inline;
 }
 
-/* ----- box model */
+/* --------------------------------------------------------- box model */
 
 .margin-l-10 {
   margin-left: 10px;
@@ -51,7 +51,7 @@ h1 {
   margin-left: 16px;
 }
 
-/* ---- messaging */
+/* --------------------------------------------------------- messaging */
 
 .loading-message {
   text-align: center;
@@ -67,7 +67,7 @@ h1 {
   color: black;
 }
 
-/* ----- button */
+/* --------------------------------------------------------- button */
 
 /* .lsk-btn-color{
     color:white;
@@ -117,13 +117,12 @@ h1 {
 }
 
 /* ensure this is placed at last so it's not overrode */
-
 /* .button-danger{
     color:white;
     background-color: red;
 } */
 
-.button-disabled {
+.lsk-disabled {
   background-color: lightgray !important;
   color: darkgray !important;
   cursor: not-allowed;
@@ -131,10 +130,32 @@ h1 {
   /* pointer-events: none; */
 }
 
-/* ----- angular hack */
+/* --------------------------------------------------------- angular hack */
 
 /* ensure [hidden] binding works */
-
 [hidden] {
   display: none !important;
+}
+
+/* --------------------------------------------------------- shared by components */
+.titled-action-bar {
+  display: flex;
+  /* have to place elements in reverse order in html, not ideal  */
+  /* flex-flow: row-reverse; */
+
+  justify-content: flex-end;
+}
+
+.button-titled {
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+textarea.data-editor {
+  padding: 10px;
+  width: 100%;
+  line-height: 1.4;
+  border: deepskyblue 1px solid;
+  resize: vertical;
+  font-size: 16px;
 }

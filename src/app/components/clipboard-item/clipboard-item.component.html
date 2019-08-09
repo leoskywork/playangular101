@@ -13,7 +13,6 @@
       <div class="action-bar" [hidden]="!isConfirmDeleting">
         <button type="button" id="confirm-delete-note" class="lsk-btn-danger button-titled" (click)="onConfirmedDelete()">
           Delete
-          <!--         (mouseleave)="onMouseLeaveDelete($event)"   -->
         </button>
         <button type="button" class="lsk-btn button-titled margin-l-16" title="Back" (click)="onCancelDelete()">>></button>
       </div>
@@ -29,22 +28,22 @@
         <br />
         <div class="titled-action-bar">
           <button
-            type="button"
-            class="lsk-btn button-titled margin-l-16"
-            (click)="onCancelEdit()"
-            [ngClass]="{ 'button-disabled': !canEnableCancel() }"
-            [disabled]="!canEnableCancel()"
-          >
-            Cancel
-          </button>
-          <button
             type="submit"
             class="lsk-btn-primary button-titled"
             (click)="onSave()"
-            [ngClass]="{ 'button-disabled': !canEnableSave() }"
+            [ngClass]="{ 'lsk-disabled': !canEnableSave() }"
             [disabled]="!canEnableSave()"
           >
             Save
+          </button>
+          <button
+            type="button"
+            class="lsk-btn button-titled margin-l-16"
+            (click)="onCancelEdit()"
+            [ngClass]="{ 'lsk-disabled': !canEnableCancel() }"
+            [disabled]="!canEnableCancel()"
+          >
+            Cancel
           </button>
         </div>
       </form>

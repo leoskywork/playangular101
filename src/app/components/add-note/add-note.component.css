@@ -1,0 +1,17 @@
+#add-note-container {
+  padding: 20px 20px 0 20px;
+  margin: 0 auto;
+  border-radius: 10px;
+  /* max-width 40px larger than note-item */
+  /* max-width: 960px; */
+  max-width: 1000px;
+  min-width: 320px;
+}
+
+/* .data-editor {
+  border-radius: 10px;
+} */
+
+.progress-message {
+  padding-top: 4px;
+}
