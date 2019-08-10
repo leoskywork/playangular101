@@ -1,5 +1,7 @@
 export class Constants {
   public static readonly appName: string = 'Angular 101';
+  public static readonly version: string = '1.0.0';
+  public static readonly versionDate: string = '2019-8-10';
   public static readonly lskSessionHeader: string = 'lsk-session-id';
   public static readonly lskSessionDev: string = 'dev001abc';
 

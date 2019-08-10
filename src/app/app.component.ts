@@ -8,6 +8,8 @@ import { Constants } from './common/constants';
 })
 export class AppComponent {
   title: string = Constants.getAppEnv() + ' Angular 101';
+  version: string = Constants.version;
+  versionDate: string = Constants.versionDate;
   createdAt: Date = new Date('2019-7-15');
 
   constructor() {
