@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { EventArgs, EventType } from 'src/app/models/app-global';
-import { Constants } from 'src/app/common/constants';
+import { EventArgs, EventType } from '../../models/app-global';
+import { Constants } from '../../common/constants';
 
 @Component({
   selector: 'app-add-note',
@@ -41,9 +41,8 @@ export class AddNoteComponent implements OnInit {
   }
 
   onAddNoteEnd(success: boolean) {
-    setTimeout(() => {
-      this.isSaving = false;
-    }, Constants.minVisualTimeMS);
+    setTimeout(() => (this.isSaving = false), Constants.minVisualTimeMS);
+
     if (success) {
       this.newNote = null;
       setTimeout(() => {

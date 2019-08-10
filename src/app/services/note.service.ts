@@ -26,7 +26,8 @@ export class NoteService {
   }
 
   updateNote(note: Note): Observable<ApiResult<Note>> {
-    return this.http.put<ApiResult<Note>>(Constants.getNoteApiUrl(), note, this.httpOption).pipe(catchError(this.handleError));
+    const simpleNote = { uid: note.uid, data: note.data };
+    return this.http.put<ApiResult<Note>>(Constants.getNoteApiUrl(), simpleNote, this.httpOption).pipe(catchError(this.handleError));
   }
 
   deleteNote(note: Note): Observable<LightResult> {

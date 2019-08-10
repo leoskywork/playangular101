@@ -4,7 +4,7 @@ import { NoteService } from '../../services/note.service';
 import { EventArgs, EventType } from '../../models/app-global';
 import { ApiResult, LightResult } from '../../models/api-result';
 import { AddNoteComponent } from '../add-note/add-note.component';
-import { Constants } from 'src/app/common/constants';
+import { Constants } from '../../common/constants';
 
 @Component({
   selector: 'app-clipboard',

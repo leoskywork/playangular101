@@ -7,7 +7,7 @@ export class Constants {
   private static readonly baseUrlPilot: string = 'http://leoskywork.com:84/api/';
   private static readonly baseUrlProd: string = 'http://leoskywork.com/api/';
 
-  public static readonly isDev: boolean = true;
+  public static readonly isDev: boolean = false;
   public static readonly isPilot: boolean = true;
 
   public static readonly minVisualTimeMS = 400;

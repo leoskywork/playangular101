@@ -94,7 +94,7 @@ export class ClipboardItemComponent implements OnInit {
       result => {
         this.isSaving = false;
         if (result.success) {
-          this.note = result.data;
+          this.note.data = newNote.data;
           this.isEditing = false;
         } else {
           console.log('todo...' + result.message);
