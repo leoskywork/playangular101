@@ -7,7 +7,7 @@ import { Constants } from './common/constants';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string = Constants.getAppEnv() + ' Angular 101';
+  title: string = Constants.getAppEnv() + ' ' + Constants.appName;
   version: string = Constants.version;
   versionDate: string = Constants.versionDate;
   createdAt: Date = new Date('2019-7-15');
@@ -18,6 +18,5 @@ export class AppComponent {
 
   test() {
     console.log('app.component - test');
-    let a = 10;
   }
 }
