@@ -37,8 +37,12 @@ h1 {
   background-color: deepskyblue;
 }
 
-.inline {
+.lsk-pos-inline {
   display: inline;
+}
+
+.lsk-pos-relative {
+  position: relative;
 }
 
 /* --------------------------------------------------------- box model */
@@ -147,12 +151,13 @@ h1 {
 }
 
 .button-titled {
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 8px 16px;
+  border-radius: 6px;
 }
 
 textarea.data-editor {
   padding: 10px;
+  margin: 10px 0;
   width: 100%;
   line-height: 1.4;
   border: deepskyblue 1px solid;

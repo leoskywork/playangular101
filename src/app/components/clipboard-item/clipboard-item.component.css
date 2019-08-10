@@ -62,7 +62,11 @@
 .note-item .update-info {
   /* text-align: right; */
   display: block;
-  margin-top: 10px;
+}
+
+.note-item .update-info.upward {
+  position: absolute;
+  bottom: 0;
 }
 
 .trivial-info {

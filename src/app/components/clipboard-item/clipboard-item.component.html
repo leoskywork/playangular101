@@ -47,11 +47,13 @@
           </button>
         </div>
       </form>
-      <span class="update-info trivial-info" *ngIf="note.hasUpdated">
-        <!-- don't use unified date format here, just for fun -->
-        Last edited by {{ note.lastUpdatedBy | uppercase }} at
-        {{ note.lastUpdatedAt | date: 'yyyy.MM.dd H:mm z' }}
-      </span>
+      <div class="lsk-pos-relative">
+        <span class="update-info trivial-info" *ngIf="note.hasUpdated" [ngClass]="{ upward: isEditing }">
+          <!-- don't use unified date format here, just for fun -->
+          Last edited by {{ note.lastUpdatedBy | uppercase }} at
+          {{ note.lastUpdatedAt | date: 'yyyy.MM.dd H:mm z' }}
+        </span>
+      </div>
     </div>
   </div>
 </div>

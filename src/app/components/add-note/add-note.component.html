@@ -1,6 +1,6 @@
 <div id="add-note-container">
   <div class="titled-action-bar">
-    <button *ngIf="!showAddForm" class="lsk-btn button-titled" (click)="onAddNoteBegin()">Add Note</button>
+    <button *ngIf="!showAddForm" class="lsk-btn button-titled" (click)="onAddNoteBegin()">+ Note</button>
   </div>
   <form *ngIf="showAddForm" (ngSubmit)="onSave()">
     <textarea class="data-editor" name="newNote" [(ngModel)]="newNote" rows="10" [disabled]="isSaving"></textarea>
