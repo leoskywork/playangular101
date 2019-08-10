@@ -4,6 +4,7 @@ import { NoteService } from '../../services/note.service';
 import { EventArgs, EventType } from '../../models/app-global';
 import { ApiResult, LightResult } from '../../models/api-result';
 import { AddNoteComponent } from '../add-note/add-note.component';
+import { Constants } from 'src/app/common/constants';
 
 @Component({
   selector: 'app-clipboard',
@@ -20,7 +21,7 @@ export class ClipboardComponent implements OnInit {
 
   ngOnInit() {
     this.isLoadingNotes = true;
-    this.getNotes(new Date(), 'init view of clipboard', _ => (this.isLoadingNotes = false));
+    this.getNotes(new Date(), 'init view of clipboard', _ => setTimeout(() => (this.isLoadingNotes = false), Constants.minVisualTimeMS));
   }
 
   getNotes(date: Date, caller: string, onAjaxReturned?: (success: boolean) => void) {
@@ -62,7 +63,7 @@ export class ClipboardComponent implements OnInit {
             if (noteIndex > -1) {
               setTimeout(() => {
                 this.notes.splice(noteIndex, 1);
-              }, 200);
+              }, Constants.minVisualTimeMS);
             }
             //todo - reload data
           } else {

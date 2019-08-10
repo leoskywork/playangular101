@@ -10,6 +10,8 @@ export class Constants {
   public static readonly isDev: boolean = true;
   public static readonly isPilot: boolean = true;
 
+  public static readonly minVisualTimeMS = 400;
+
   public static getNoteApiUrl(): string {
     return this.getBaseApiUrl() + 'note/';
   }

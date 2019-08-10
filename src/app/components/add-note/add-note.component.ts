@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { EventArgs, EventType } from 'src/app/models/app-global';
+import { Constants } from 'src/app/common/constants';
 
 @Component({
   selector: 'app-add-note',
@@ -42,13 +43,13 @@ export class AddNoteComponent implements OnInit {
   onAddNoteEnd(success: boolean) {
     setTimeout(() => {
       this.isSaving = false;
-    }, 400);
+    }, Constants.minVisualTimeMS);
     if (success) {
       this.newNote = null;
       setTimeout(() => {
         const textarea = document.querySelector('#add-note-container form textarea');
         (<HTMLTextAreaElement>textarea).focus();
-      }, 500);
+      }, Constants.minVisualTimeMS + 100);
     }
   }
 }
