@@ -35,6 +35,7 @@ h1 {
   /* color: deepskyblue; */
   color: white;
   background-color: deepskyblue;
+  cursor: default;
 }
 
 .lsk-pos-inline {
