@@ -3,6 +3,7 @@
 /*
 
 * start app => $ ng serve
+* build app => $ ng build
 
 
 
