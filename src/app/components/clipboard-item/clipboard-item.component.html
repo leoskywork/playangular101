@@ -4,7 +4,7 @@
             <span class="author" [ngClass]="{ overwrite: hasNewAuthor() }" title="{{ hasNewAuthor() ? 'Not current author' : 'todo...' }}">{{
                 note.createdBy | uppercase
             }}</span>
-            <span class="created-at trivial-info">{{ note.createdAt | date: 'yyyy.MM.dd h:mm a z' }}</span>
+            <span class="created-at trivial-info">{{ note.createdAt | date: 'yy.MM.dd h:mm a z' }}</span>
             <div class="action-bar" [hidden]="isEditing || isConfirmDeleting || isDeleting">
                 <button type="button" class="lsk-btn button-action" title="Copy" (click)="onCopy()">C</button>
                 <button type="button" class="lsk-btn button-action margin-l-16" title="Edit" (click)="onBeginEdit($event)">E</button>
