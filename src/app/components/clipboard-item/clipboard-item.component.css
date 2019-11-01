@@ -1,82 +1,88 @@
 .action-bar {
-  float: right;
+    float: right;
 }
 
 .button-action {
-  padding: 5px 7px;
-  border-radius: 50%;
-  font-size: 0.6em;
-  /*need work with 'position: relative'*/
-  /* bottom: 2px;  */
-  /* position: relative; */
+    padding: 5px 7px;
+    border-radius: 50%;
+    font-size: 0.6em;
+    /*need work with 'position: relative'*/
+    /* bottom: 2px;  */
+    /* position: relative; */
 }
 
 /* ----- note item */
 
 .note-item-wrap {
-  /* display: flex; */
-  /* justify-content: space-around; */
-  margin: 20px;
+    /* display: flex; */
+    /* justify-content: space-around; */
+    margin: 20px;
 }
 
 .note-item {
-  /* background-color: lightblue; */
-  /* background-color: #e5dddd; */
-  background-color: #ececec;
-  padding: 20px;
-  margin: 0 auto;
-  border-radius: 10px;
-  max-width: 960px;
-  /* don't forget to update body.min-width if you changed this */
-  min-width: 320px;
+    /* background-color: lightblue; */
+    /* background-color: #e5dddd; */
+    background-color: #ececec;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    max-width: 960px;
+    /* don't forget to update body.min-width if you changed this */
+    min-width: 320px;
 
-  border: #c1c1c1 1px solid;
+    border: #c1c1c1 1px solid;
 }
 
 .note-item .author {
-  /* color: slateblue; */
-  /* color: steelblue; */
-  /* font-family: monospace; */
-  /* font-size: 1.1em; */
-  cursor: pointer;
-  display: inline-block;
-  color: darkslategray;
-  font-size: 0.8em;
+    /* color: slateblue; */
+    /* color: steelblue; */
+    /* font-family: monospace; */
+    /* font-size: 1.1em; */
+    cursor: pointer;
+    display: inline-block;
+    color: darkslategray;
+    font-size: 0.8em;
 }
 
 .note-item .created-at {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 .note-item .data-readonly {
-  padding: 10px 0;
-  color: darkslategray;
-  /* break-word not work on Edge, so break-all here */
-  word-break: break-all;
+    padding: 10px 0;
+    color: darkslategray;
+    /* break-word not work on Edge, so break-all here */
+    word-break: break-all;
+    border: none;
+    resize: none;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+    line-height: 1.6;
 }
 
 .note-item .data-deleting {
-  color: gray;
+    color: gray;
 }
 
 .note-item .update-info {
-  /* text-align: right; */
-  display: block;
+    /* text-align: right; */
+    display: block;
 }
 
 .note-item .update-info.upward {
-  position: absolute;
-  bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 
 .trivial-info {
-  font-size: 0.7em;
-  font-style: italic;
-  color: steelblue;
+    font-size: 0.7em;
+    font-style: italic;
+    color: steelblue;
 }
 
 .overwrite {
-  text-decoration: line-through;
+    text-decoration: line-through;
 }
 
 /* ----- animation */
@@ -88,47 +94,47 @@ default value    - none, 0       , ease           , 0s   , 1              , norm
 */
 
 #confirm-delete-note {
-  opacity: 0;
+    opacity: 0;
 
-  /* need to set position to relative to make animation(position changing) work */
-  /* position: relative; */
-  animation-name: sliding-from-right;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
+    /* need to set position to relative to make animation(position changing) work */
+    /* position: relative; */
+    animation-name: sliding-from-right;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
 
-  /* keep position at the last one of keyframes */
-  animation-fill-mode: forwards;
+    /* keep position at the last one of keyframes */
+    animation-fill-mode: forwards;
 }
 
 @keyframes sliding-from-right {
-  0% {
-    /* right: -10px; */
-    opacity: 1;
-  }
-  50% {
-    /* right: -10px; */
-    opacity: 0.6;
-  }
-  100% {
-    /* right: 0; */
-    opacity: 1;
-  }
+    0% {
+        /* right: -10px; */
+        opacity: 1;
+    }
+    50% {
+        /* right: -10px; */
+        opacity: 0.6;
+    }
+    100% {
+        /* right: 0; */
+        opacity: 1;
+    }
 }
 
 .note-item form {
-  animation: fade-in 1s linear;
-  animation-fill-mode: forwards;
+    animation: fade-in 1s linear;
+    animation-fill-mode: forwards;
 }
 
 @keyframes fade-in {
-  /* when at 0% */
-  from {
-    opacity: 0;
-  }
-  /* when at 100% */
-  to {
-    opacity: 1;
-  }
+    /* when at 0% */
+    from {
+        opacity: 0;
+    }
+    /* when at 100% */
+    to {
+        opacity: 1;
+    }
 }
 
 /* ----- transition - not working on mobile phone!!! */
