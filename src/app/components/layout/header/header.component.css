@@ -3,7 +3,7 @@
     font-weight: normal;
     color: lightslategray;
     /* remember to adjust margin-right of the fist nav item once you changed the following margin or padding values */
-    margin: 8px 10px;
+    margin: 8px 15px;
     padding: 2px 0;
 }
 
@@ -14,5 +14,12 @@
 }
 
 .nav-item:first-of-type {
-    margin-right: 20px;
+    margin-left: 30px;
+}
+
+.nav-item:hover {
+    /* font-weight: bold; */
+    /* color: slategray; */
+    /* background-color: lightgray; */
+    border-bottom: darkslategray 1px solid;
 }
