@@ -12,7 +12,10 @@
             #navAbout
             (click)="onClickNavItem2(navAbout.innerText)"
             [ngClass]="{ selected: currentNavItem == navAbout.innerText }"
-            >About
-        </a>
+            >About</a
+        >
+        <a class="nav-item" routerLink="/faq" #navFaq (click)="onClickNavItem2(navFaq.innerText)" [ngClass]="{ selected: currentNavItem == navFaq.innerText }"
+            >FAQ</a
+        >
     </nav>
 </header>

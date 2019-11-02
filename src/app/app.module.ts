@@ -10,6 +10,7 @@ import { ClipboardItemComponent } from './components/clipboard-item/clipboard-it
 import { AddNoteComponent } from './components/add-note/add-note.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { HeaderComponent } from './components/layout/header/header.component';
+import { FaqComponent } from './components/pages/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeaderComponent } from './components/layout/header/header.component';
     ClipboardItemComponent,
     AddNoteComponent,
     AboutComponent,
-    HeaderComponent
+    HeaderComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
