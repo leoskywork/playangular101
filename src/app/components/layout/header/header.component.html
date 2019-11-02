@@ -2,4 +2,8 @@
     <h1 class="text-centered app-name" title="{{ 'LSK note v' + version + ' @ ' + versionDate }}">
         {{ title }}
     </h1>
+    <nav>
+        <a routerLink="/" class="nav-item" (click)="onClickNavItem($event)" [ngClass]="{ selected: currentNavItem == 'Note' }">Note</a>
+        <a routerLink="/about" class="nav-item" (click)="onClickNavItem($event)" [ngClass]="{ selected: currentNavItem == 'About' }">About</a>
+    </nav>
 </header>
