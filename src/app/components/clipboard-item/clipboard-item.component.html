@@ -24,6 +24,7 @@
             <textarea [hidden]="isEditing" id="ro-{{ note.uid }}" class="data-readonly" [ngClass]="{ 'data-deleting': isDeleting }" readonly="true">{{
                 note.data
             }}</textarea>
+            <!--  #roNote [style.height]="roNote.scrollHeight+'px'" //throw error -->
             <form [hidden]="!isEditing">
                 <!-- the value of name attribute should be the same as the mode-->
                 <textarea id="{{ note.uid }}" class="data-editor" name="newData" [(ngModel)]="newData" rows="10" [disabled]="isSaving"></textarea>
