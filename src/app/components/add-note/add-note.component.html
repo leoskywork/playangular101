@@ -1,24 +1,24 @@
-<div id="add-note-container">
-  <div class="titled-action-bar">
-    <button *ngIf="!showAddForm" class="lsk-btn button-titled" (click)="onAddNoteBegin()">+ Note</button>
-  </div>
-  <form *ngIf="showAddForm" (ngSubmit)="onSave()">
-    <textarea class="data-editor" name="newNote" [(ngModel)]="newNote" rows="10" [disabled]="isSaving"></textarea>
+<div id="add-note-container" [ngClass]="{ popup: showAddForm }">
     <div class="titled-action-bar">
-      <span *ngIf="isSaving" class="progress-message">
-        Saving...
-      </span>
-      <button class="lsk-btn-primary button-titled margin-l-16" type="submit" [ngClass]="{ 'lsk-disabled': !enableSave() }" [disabled]="!enableSave()">
-        Save
-      </button>
-      <button
-        class="lsk-btn button-titled margin-l-16"
-        (click)="showAddForm = false"
-        [ngClass]="{ 'lsk-disabled': !enableCancel() }"
-        [disabled]="!enableCancel()"
-      >
-        Cancel
-      </button>
+        <button *ngIf="!showAddForm" class="lsk-btn button-titled" (click)="onAddNoteBegin()">+ Note</button>
     </div>
-  </form>
+    <form *ngIf="showAddForm" (ngSubmit)="onSave()">
+        <textarea class="data-editor editor-popup" name="newNote" [(ngModel)]="newNote" rows="10" [disabled]="isSaving"></textarea>
+        <div class="titled-action-bar margin-b-10 margin-r-10">
+            <span *ngIf="isSaving" class="progress-message">
+                Saving...
+            </span>
+            <button class="lsk-btn-primary button-titled margin-l-16" type="submit" [ngClass]="{ 'lsk-disabled': !enableSave() }" [disabled]="!enableSave()">
+                Save
+            </button>
+            <button
+                class="lsk-btn button-titled margin-l-16"
+                (click)="showAddForm = false"
+                [ngClass]="{ 'lsk-disabled': !enableCancel() }"
+                [disabled]="!enableCancel()"
+            >
+                Cancel
+            </button>
+        </div>
+    </form>
 </div>

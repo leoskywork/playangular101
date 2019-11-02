@@ -56,6 +56,14 @@ h1 {
     margin-left: 16px;
 }
 
+.margin-r-10 {
+    margin-right: 10px;
+}
+
+.margin-b-10 {
+    margin-bottom: 10px;
+}
+
 /* --------------------------------------------------------- messaging */
 
 .loading-message {

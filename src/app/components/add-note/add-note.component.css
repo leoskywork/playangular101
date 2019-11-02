@@ -5,14 +5,27 @@
     right: 30px;
     /* padding: 20px 20px 0 20px; */
     /* margin: 0 auto; */
-    /* ----------------------------------end of changes for align*/
-    border-radius: 10px;
     /* max-width 40px larger than note-item */
     /* max-width: 960px; */
-    max-width: 1000px;
-    min-width: 320px;
+    /* max-width: 1000px; */
+    /* min-width: 320px; */
+    /* ----------------------------------end of changes for align*/
+    border-radius: 10px;
+}
+
+#add-note-container.popup {
+    width: 360px;
+    background-color: white;
+    /* h-offset, v-offset, blur radius, color */
+    box-shadow: 0px 2px 8px black;
 }
 
 .progress-message {
     padding-top: 8px;
+}
+
+.editor-popup {
+    border: none;
+    border-bottom: deepskyblue 1px solid;
+    outline: none;
 }
