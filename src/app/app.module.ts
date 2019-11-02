@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { ClipboardComponent } from './components/clipboard/clipboard.component';
 import { ClipboardItemComponent } from './components/clipboard-item/clipboard-item.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
+import { AboutComponent } from './components/pages/about/about.component';
+import { HeaderComponent } from './components/layout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClipboardComponent,
     ClipboardItemComponent,
-    AddNoteComponent
+    AddNoteComponent,
+    AboutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

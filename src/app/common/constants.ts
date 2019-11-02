@@ -1,4 +1,5 @@
 export class Constants {
+    public static readonly createdAt: string = '2019-7-15';
     public static readonly version: string = '1.0.1';
     public static readonly versionDate: string = '2019-8-10';
 
