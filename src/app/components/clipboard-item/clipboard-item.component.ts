@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { Note } from '../../models/note';
 import { NoteService } from '../../services/note.service';
 import { EventArgs, EventType } from '../../models/app-global';
@@ -8,7 +8,7 @@ import { EventArgs, EventType } from '../../models/app-global';
     templateUrl: './clipboard-item.component.html',
     styleUrls: ['./clipboard-item.component.css']
 })
-export class ClipboardItemComponent implements OnInit {
+export class ClipboardItemComponent implements OnInit, AfterViewInit {
     @Output() onManipulateNote: EventEmitter<EventArgs<Note>> = new EventEmitter();
     @Input() note: Note;
     isEditing: boolean;
@@ -21,9 +21,15 @@ export class ClipboardItemComponent implements OnInit {
 
     ngOnInit() {
         this.newData = this.note.data;
-        setTimeout(() => {
-            this.resizeReadonlyNoteItem();
-        });
+        //setTimeout(() => {
+        //this.resizeReadonlyNoteItem();
+        //});
+    }
+
+    ngAfterViewInit(): void {
+        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+        //Add 'implements AfterViewInit' to the class.
+        this.resizeReadonlyNoteItem();
     }
 
     //auto resize textarea, ref https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
@@ -31,7 +37,7 @@ export class ClipboardItemComponent implements OnInit {
         // console.log('enter resize...');
         const noteElement = document.querySelector('#ro-' + this.note.uid);
         if (noteElement) {
-            const noteTextarea = <HTMLTextAreaElement>noteElement;
+            const noteTextarea = noteElement as HTMLTextAreaElement;
             //console.log(`height: ${noteTextarea.style.height}, scroll height: ${noteTextarea.scrollHeight}, id: ${noteTextarea.id}`);
             // noteTextarea.style.height = 'auto'; //seems not needed
             noteTextarea.style.height = noteTextarea.scrollHeight + 'px';
