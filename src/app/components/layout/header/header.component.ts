@@ -17,10 +17,17 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
     }
 
-    onClickNavItem(event: MouseEvent) {
-        //console.log(event);
-        const navItem = <HTMLElement>event.target;
-        this.currentNavItem = navItem.innerText;
+    //not good to pass in $event, ref https://angular.io/guide/user-input#passing-event-is-a-dubious-practice
+    //better way is to use template reference variable, get innerText from that variable, then pass in innerText directly
+    // onClickNavItem(event: MouseEvent) {
+    //     //console.log(event);
+    //     const navItem = event.target as HTMLElement;
+    //     this.currentNavItem = navItem.innerText;
+    // }
+
+    onClickNavItem2(item: string) {
+        console.log(item);
+        this.currentNavItem = item;
     }
 
 }
