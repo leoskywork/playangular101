@@ -11,24 +11,29 @@ import { AddNoteComponent } from './components/add-note/add-note.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FaqComponent } from './components/pages/faq/faq.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { ReuseClipboardStrategy } from './misc/reuse-clipboard.strategy';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ClipboardComponent,
-    ClipboardItemComponent,
-    AddNoteComponent,
-    AboutComponent,
-    HeaderComponent,
-    FaqComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ClipboardComponent,
+        ClipboardItemComponent,
+        AddNoteComponent,
+        AboutComponent,
+        HeaderComponent,
+        FaqComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule
+    ],
+    providers: [{
+        provide: RouteReuseStrategy,
+        useClass: ReuseClipboardStrategy
+    }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

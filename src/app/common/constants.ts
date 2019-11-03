@@ -15,6 +15,11 @@ export class Constants {
     public static readonly isPilot: boolean = true;
 
     public static readonly minVisualTimeMS = 400;
+    public static readonly routeRoot: string = '';
+    public static readonly routeClipboard: string = 'clipboard';
+    public static readonly routeAbout: string = 'about';
+    public static readonly routeFaq: string = 'faq';
+    public static readonly maxCacheRouteTimeMS: number = 3 * 10 * 1000;
 
     public static getNoteApiUrl(): string {
         return this.getBaseApiUrl() + 'note/';

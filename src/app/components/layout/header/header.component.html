@@ -3,7 +3,7 @@
         {{ title }}
     </h1>
     <nav>
-        <a class="nav-item" routerLink="/" #navNote (click)="onClickNavItem2(navNote.innerText)" [ngClass]="{ selected: currentNavItem == navNote.innerText }"
+        <a class="nav-item" routerLink="/clipboard" #navNote (click)="onClickNavItem2(navNote.innerText)" [ngClass]="{ selected: currentNavItem == navNote.innerText }"
             >Note</a
         >
         <a
