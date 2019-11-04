@@ -3,8 +3,8 @@
     font-weight: normal;
     color: lightslategray;
     /* remember to adjust margin-right of the fist nav item once you changed the following margin or padding values */
-    margin: 8px 15px;
-    padding: 2px 0;
+    margin: 0 15px;
+    padding: 6px 0;
 }
 
 .nav-item.selected {
@@ -22,4 +22,8 @@
     /* color: slategray; */
     /* background-color: lightgray; */
     border-bottom: darkslategray 1px solid;
+}
+
+nav {
+    margin-top: 10px;
 }
