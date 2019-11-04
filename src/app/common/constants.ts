@@ -13,6 +13,7 @@ export class Constants {
 
     public static readonly isDev: boolean = true;
     public static readonly isPilot: boolean = true;
+    public static readonly isNode: boolean = false;
 
     public static readonly minVisualTimeMS = 400;
     public static readonly routeRoot: string = '';
@@ -35,5 +36,9 @@ export class Constants {
         if (Constants.isDev) return 'Dev';
         if (Constants.isPilot) return 'Pilot';
         return '';
+    }
+
+    public static getBackendEnvironment(): string {
+        return Constants.isNode ? 'Node' : 'Asp.Net';
     }
 }

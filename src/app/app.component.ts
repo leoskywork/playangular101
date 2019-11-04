@@ -13,6 +13,7 @@ export class AppComponent {
     }
 
     test() {
-        console.log('app.component - test');
+        console.log('app component ctor');
+        console.log(`app backend env: ${Constants.getBackendEnvironment()}`);
     }
 }
