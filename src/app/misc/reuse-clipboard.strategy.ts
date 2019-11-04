@@ -3,8 +3,9 @@ import { ActivatedRouteSnapshot, DetachedRouteHandle } from '@angular/router';
 import { Constants } from '../common/constants';
 
 export class ReuseClipboardStrategy implements RouteReuseStrategy {
+    static readonly reusedPages = [Constants.routeClipboard];
     routeHandles = new Map<string, DetachedRouteHandle>();
-    routeReuseItems = new Map<string, Date>();
+    routeReuseRecords = new Map<string, Date>();
 
     shouldDetach(route: ActivatedRouteSnapshot): boolean {
         this.log(`shouldDetach, route: ${route}`)
@@ -13,7 +14,7 @@ export class ReuseClipboardStrategy implements RouteReuseStrategy {
 
         if (!withinDuration) {
             this.routeHandles.delete(path);
-            this.routeReuseItems.delete(path);
+            this.routeReuseRecords.delete(path);
         }
 
         return withinDuration;
@@ -32,7 +33,7 @@ export class ReuseClipboardStrategy implements RouteReuseStrategy {
 
         if (!withinDuration) {
             this.routeHandles.delete(path);
-            this.routeReuseItems.delete(path);
+            this.routeReuseRecords.delete(path);
         }
 
         return withinDuration && this.routeHandles.has(path);
@@ -46,11 +47,18 @@ export class ReuseClipboardStrategy implements RouteReuseStrategy {
 
     shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
         this.log(`shouldReuseRoute, curr: ${curr}, future: ${future}`)
-        const currentPath = this.getPath(curr);
-        if (currentPath == Constants.routeClipboard) {
-            if (!this.routeReuseItems.has(currentPath)) {
-                this.routeReuseItems.set(Constants.routeClipboard, new Date());
-                this.log(`turn on reuse at: ${this.routeReuseItems.get(this.getPath(curr))}`);
+        let currentPath = this.getPath(curr);
+
+        //clipboard is the default page for root path
+        //fixme: seems not working, also causes problem, massing up the cache duration checking
+        // if (currentPath == Constants.routeRoot) {
+        //     currentPath = Constants.routeClipboard;
+        // }
+
+        if (ReuseClipboardStrategy.reusedPages.indexOf(currentPath) > -1) {
+            if (!this.routeReuseRecords.has(currentPath)) {
+                this.routeReuseRecords.set(currentPath, new Date());
+                this.log(`turn on reuse at: ${this.routeReuseRecords.get(currentPath)}`);
             }
         }
 
@@ -67,8 +75,8 @@ export class ReuseClipboardStrategy implements RouteReuseStrategy {
     }
 
     private checkIfWithinDuration(path: string): boolean {
-        if (this.routeReuseItems.has(path)) {
-            const duration = Date.now() - this.routeReuseItems.get(path).valueOf();
+        if (this.routeReuseRecords.has(path)) {
+            const duration = Date.now() - this.routeReuseRecords.get(path).valueOf();
             this.log(`duration: ${duration}`);
             return duration < Constants.maxCacheRouteTimeMS;
         }
