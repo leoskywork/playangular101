@@ -4,7 +4,7 @@
     </div>
     <form *ngIf="showAddForm" (ngSubmit)="onSave()">
         <textarea class="data-editor editor-popup" name="newNote" [(ngModel)]="newNote" rows="10" [disabled]="isSaving"></textarea>
-        <div class="titled-action-bar margin-b-10 margin-r-10">
+        <div class="titled-action-bar padding-b-10 padding-r-10">
             <span *ngIf="isSaving" class="progress-message">
                 Saving...
             </span>
