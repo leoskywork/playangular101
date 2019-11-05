@@ -2,30 +2,14 @@
 
 a project to get familiar with Angular fundamentals
 
-## todo
-
-* [ ] a clipboard
-* [ ] clipboard history of current month
-* [ ] all clipboard history months
-* [ ] add authorization
-
 ## is it true
 
-* there can not be 2 root elements in component html file?
+-   there can not be 2 root elements in component html file?
 
 ## references
 
 ## flowing is auto generated
 
->
->
->
->
->
->
->
->
->
 >
 
 ## Development server

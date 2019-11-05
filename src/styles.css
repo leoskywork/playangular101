@@ -64,6 +64,10 @@ h1 {
     margin-bottom: 10px;
 }
 
+.margin-10 {
+    margin: 10px;
+}
+
 .padding-r-10 {
     padding-right: 10px;
 }
@@ -102,6 +106,7 @@ h1 {
     border: none;
     cursor: pointer;
     color: white;
+    outline: none;
 }
 
 .lsk-btn {
@@ -180,4 +185,9 @@ textarea.data-editor {
     border: deepskyblue 1px solid;
     resize: vertical;
     font-size: 16px;
+}
+
+.space-evenly {
+    display: flex;
+    justify-content: space-evenly;
 }

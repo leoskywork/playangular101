@@ -27,3 +27,8 @@
 nav {
     margin-top: 10px;
 }
+
+#login-link{
+    font-size: 14px;
+    color: deepskyblue;
+}

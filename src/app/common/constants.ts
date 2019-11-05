@@ -20,6 +20,8 @@ export class Constants {
     public static readonly routeClipboard: string = 'clipboard';
     public static readonly routeAbout: string = 'about';
     public static readonly routeFaq: string = 'faq';
+    public static readonly routeLogin: string = 'login';
+    public static readonly routeSignup: string = 'signup';
     public static readonly maxCacheRouteTimeMS: number = 3 * 10 * 1000;
 
     public static getNoteApiUrl(): string {

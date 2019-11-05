@@ -3,7 +3,12 @@
         {{ title }}
     </h1>
     <nav>
-        <a class="nav-item" routerLink="/clipboard" #navNote (click)="onClickNavItem2(navNote.innerText)" [ngClass]="{ selected: currentNavItem == navNote.innerText }"
+        <a
+            class="nav-item"
+            routerLink="/clipboard"
+            #navNote
+            (click)="onClickNavItem2(navNote.innerText)"
+            [ngClass]="{ selected: currentNavItem == navNote.innerText }"
             >Note</a
         >
         <a
@@ -16,6 +21,15 @@
         >
         <a class="nav-item" routerLink="/faq" #navFaq (click)="onClickNavItem2(navFaq.innerText)" [ngClass]="{ selected: currentNavItem == navFaq.innerText }"
             >FAQ</a
+        >
+        <a
+            class="nav-item"
+            id="login-link"
+            routerLink="/login"
+            #navLogin
+            (click)="onClickNavItem2(navLogin.innerText)"
+            [ngClass]="{ selected: currentNavItem == navLogin.innerText }"
+            >Log in/Sign up</a
         >
     </nav>
 </header>

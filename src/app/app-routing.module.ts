@@ -4,13 +4,15 @@ import { ClipboardComponent } from './components/clipboard/clipboard.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { FaqComponent } from './components/pages/faq/faq.component';
 import { Constants } from './common/constants'
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
     //the root path
     { path: Constants.routeRoot, component: ClipboardComponent },
     { path: Constants.routeClipboard, component: ClipboardComponent },
     { path: Constants.routeAbout, component: AboutComponent },
-    { path: Constants.routeFaq, component: FaqComponent }
+    { path: Constants.routeFaq, component: FaqComponent },
+    { path: Constants.routeLogin, component: LoginComponent }
 ];
 
 @NgModule({
