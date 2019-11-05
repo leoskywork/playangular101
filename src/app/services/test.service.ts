@@ -17,7 +17,7 @@ export class TestService {
 
         return this.http.get<string>('http://localhost:5000/users/register', options).pipe(
             map(result => {
-                console.log(result);
+                console.log('test.get resp: ', result);
                 return result;
             }),
             catchError(this.handleError)

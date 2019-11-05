@@ -15,6 +15,9 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
     }
 
+
+
+
     onTest() {
         if (this.isTestDisabled) return;
 
@@ -23,10 +26,17 @@ export class LoginComponent implements OnInit {
             this.isTestDisabled = false;
         }, 1000);
 
+        const test = new TestCases(this.testService);
 
-        // this.testHttpGet();
-        this.testHttpPost();
+        test.testHttpGet(message => this.testMessage = message);
+        test.testHttpPost();
 
+    }
+}
+
+class TestCases {
+
+    constructor(private testService: TestService) {
     }
 
     testHttpPost() {
@@ -39,13 +49,15 @@ export class LoginComponent implements OnInit {
         });
     }
 
-    testHttpGet() {
+    testHttpGet(output: (msg: string) => void) {
         this.testService.get().subscribe(result => {
+            let message: string;
             if (typeof result == 'object') {
-                this.testMessage = JSON.stringify(result);
+                message = JSON.stringify(result);
             } else {
-                this.testMessage = result;
+                message = result;
             }
+            output(message);
         });
     }
 }
