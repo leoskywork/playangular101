@@ -15,6 +15,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { ReuseClipboardStrategy } from './misc/reuse-clipboard.strategy';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { SignupComponent } from './components/signup/signup.component';
         HeaderComponent,
         FaqComponent,
         LoginComponent,
-        SignupComponent
+        SignupComponent,
+        TestComponent
     ],
     imports: [
         BrowserModule,

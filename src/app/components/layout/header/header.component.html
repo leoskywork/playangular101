@@ -24,12 +24,20 @@
         >
         <a
             class="nav-item"
+            routerLink="/test"
+            #navTest
+            (click)="onClickNavItem2(navTest.innerText)"
+            [ngClass]="{ selected: currentNavItem == navTest.innerText }"
+            >Test</a
+        >
+        <a
+            class="nav-item"
             id="login-link"
             routerLink="/login"
             #navLogin
             (click)="onClickNavItem2(navLogin.innerText)"
             [ngClass]="{ selected: currentNavItem == navLogin.innerText }"
-            >Log in/Sign up</a
+            >Log In</a
         >
     </nav>
 </header>

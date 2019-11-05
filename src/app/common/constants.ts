@@ -22,6 +22,7 @@ export class Constants {
     public static readonly routeFaq: string = 'faq';
     public static readonly routeLogin: string = 'login';
     public static readonly routeSignup: string = 'signup';
+    public static readonly routeTest: string = 'test';
     public static readonly maxCacheRouteTimeMS: number = 3 * 10 * 1000;
 
     public static getNoteApiUrl(): string {
