@@ -7,27 +7,22 @@
             class="nav-item"
             routerLink="/clipboard"
             #navNote
-            (click)="onClickNavItem2(navNote.innerText)"
-            [ngClass]="{ selected: currentNavItem == navNote.innerText }"
+            (click)="onClickNavItem2(navNote.pathname)"
+            [ngClass]="{ selected: currentNavItem == navNote.pathname }"
             >Note</a
         >
         <a
             class="nav-item"
             routerLink="/about"
             #navAbout
-            (click)="onClickNavItem2(navAbout.innerText)"
-            [ngClass]="{ selected: currentNavItem == navAbout.innerText }"
+            (click)="onClickNavItem2(navAbout.pathname)"
+            [ngClass]="{ selected: currentNavItem == navAbout.pathname }"
             >About</a
         >
-        <a class="nav-item" routerLink="/faq" #navFaq (click)="onClickNavItem2(navFaq.innerText)" [ngClass]="{ selected: currentNavItem == navFaq.innerText }"
+        <a class="nav-item" routerLink="/faq" #navFaq (click)="onClickNavItem2(navFaq.pathname)" [ngClass]="{ selected: currentNavItem == navFaq.pathname }"
             >FAQ</a
         >
-        <a
-            class="nav-item"
-            routerLink="/test"
-            #navTest
-            (click)="onClickNavItem2(navTest.innerText)"
-            [ngClass]="{ selected: currentNavItem == navTest.innerText }"
+        <a class="nav-item" routerLink="/test" #navTest (click)="onClickNavItem2(navTest.pathname)" [ngClass]="{ selected: currentNavItem == navTest.pathname }"
             >Test</a
         >
         <a
@@ -35,8 +30,8 @@
             id="login-link"
             routerLink="/login"
             #navLogin
-            (click)="onClickNavItem2(navLogin.innerText)"
-            [ngClass]="{ selected: currentNavItem == navLogin.innerText }"
+            (click)="onClickNavItem2(navLogin.pathname)"
+            [ngClass]="{ selected: currentNavItem == navLogin.pathname }"
             >Log In</a
         >
     </nav>

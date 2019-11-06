@@ -13,10 +13,11 @@ export class Constants {
 
     public static readonly isDev: boolean = true;
     public static readonly isPilot: boolean = true;
-    public static readonly isNode: boolean = false;
+    public static readonly isNode: boolean = true;
 
     public static readonly minVisualTimeMS = 400;
     public static readonly routeRoot: string = '';
+    public static readonly routeRootSlash: string = '/';
     public static readonly routeClipboard: string = 'clipboard';
     public static readonly routeAbout: string = 'about';
     public static readonly routeFaq: string = 'faq';
