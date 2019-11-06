@@ -30,6 +30,10 @@ h1 {
     text-align: center;
 }
 
+.section-centered {
+    margin: 0 auto;
+}
+
 .app-name {
     padding: 5px 0;
     /* color: deepskyblue; */

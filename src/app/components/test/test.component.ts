@@ -2,53 +2,72 @@ import { Component, OnInit } from '@angular/core';
 import { TestService } from '../../services/test.service'
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+    selector: 'app-test',
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
     testButtonDisabled: boolean;
     testMessage: string;
 
-  constructor(private testService: TestService) { }
+    constructor(private testService: TestService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  onTest() {
-    if (this.testButtonDisabled) return;
+    onTest() {
+        if (this.testButtonDisabled) return;
 
-    this.testButtonDisabled = true;
-    setTimeout(() => {
-        this.testButtonDisabled = false;
-    }, 1000);
+        this.testButtonDisabled = true;
+        setTimeout(() => {
+            this.testButtonDisabled = false;
+        }, 1000);
 
-    const test = new TestCases(this.testService);
+        const test = new TestCases(this.testService);
 
-    test.testHttpGet(message => this.testMessage = message);
-    test.testHttpPost();
+        //test.testHttpGet(message => this.testMessage = message);
+        //test.testPostRegisterUser();
 
-}
+        test.testPostLogin();
+    }
 
 }
 
 class TestCases {
 
-    constructor(private testService: TestService) {
+    constructor(private httpService: TestService) {
     }
 
-    testHttpPost() {
+    testPostLogin() {
+        const user = {
+            email: 'leoskywork@outlook.com',
+            password: 'test-pwd'
+        }
+
+        this.httpService.postLogin<any>(user).subscribe(respData => {
+            console.log('login resp data: ', respData);
+        })
+    }
+
+
+    testPostRegisterUser() {
         const obj = {
-            name: 'leo'
+
+            email: 'leoskywork@outlook.com',
+            password: 'test-pwd',
+            password2: 'test-pwd',
+            // name: 'leo'
+            name: null
         };
 
-        this.testService.post(obj).subscribe(resp => {
+
+        this.httpService.post(obj).subscribe(resp => {
             console.log('post resp: ', resp);
         });
     }
 
     testHttpGet(output: (msg: string) => void) {
-        this.testService.get().subscribe(result => {
+        this.httpService.get().subscribe(result => {
             let message: string;
             if (typeof result == 'object') {
                 message = JSON.stringify(result);

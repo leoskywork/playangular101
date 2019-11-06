@@ -35,7 +35,17 @@ export class TestService {
     }
 
     handleError(error: any) {
-        console.log('test error: ', error);
+        console.log('testService error: ', error);
         return throwError(error);
+    }
+
+    postLogin<T>(data: T): Observable<any> {
+        let options = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+
+        return this.http.post<any>('http://localhost:5000/users/login', data, options).pipe(catchError(this.handleError));
     }
 }
