@@ -20,7 +20,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, {
+        //for debug purpose only
+        enableTracing: true
+    })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

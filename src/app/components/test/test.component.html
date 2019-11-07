@@ -6,4 +6,22 @@
         <br />
         <p class="text-centered">{{ testMessage }}</p>
     </div>
+    <br />
+    <div>
+        <div class="space-evenly">
+            <input class="margin-10 test-input" type="email" name="email" [(ngModel)]="email" placeholder="Email" />
+            <input class="margin-10 test-input" type="password" name="password" [(ngModel)]="password" placeholder="Password" />
+            <button class="lsk-btn button-titled margin-10" (click)="onTestLogin()" [ngClass]="{ 'lsk-disabled': loginButtonDisabled }">Login</button>
+        </div>
+        <br />
+        <p class="text-centered">{{ loginMessage }}</p>
+    </div>
+    <br />
+    <div>
+        <div class="space-evenly">
+            <button class="lsk-btn button-titled margin-10" (click)="onTestLoadData()" [ngClass]="{ 'lsk-disabled': loadDataButtonDisabled }">Load Data</button>
+        </div>
+        <br />
+        <p class="text-centered">{{ loadDataMessage }}</p>
+    </div>
 </div>
