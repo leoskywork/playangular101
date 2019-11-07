@@ -38,10 +38,11 @@ export class TestComponent implements OnInit {
             this.testButtonDisabled = false;
         }, 1000);
 
+        this.testCases.testLogout((d) => this.testMessage = this.convert(d));
 
         //test.testHttpGet(message => this.testMessage = message);
-        const registerData = { email: this.email, password: 'test-pwd', password2: 'test-pwd' };
-        this.testCases.testPostRegisterUser(registerData);
+        //const registerData = { email: this.email, password: 'test-pwd', password2: 'test-pwd' };
+        //this.testCases.testPostRegisterUser(registerData);
 
         //test.testPostLogin();
     }
@@ -86,11 +87,23 @@ export class TestComponent implements OnInit {
         });
     }
 
+    convert(data: any) {
+        if (typeof data == 'object') {
+            return JSON.stringify(data);
+        }
+
+        return data;
+    }
+
 }
 
 class TestCases {
 
     constructor(private httpService: TestService) {
+    }
+
+    testLogout(callback: (data: any) => void) {
+        this.httpService.getLogout().subscribe(data => callback(data));
     }
 
     testGetData(callback: (data: any) => void) {

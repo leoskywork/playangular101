@@ -52,9 +52,12 @@ export class TestService {
     }
 
     getFeed(): Observable<any> {
-        return this.http.get<any>('http://localhost:5000/feed', { withCredentials: true }).pipe(map(
-            r => r
-        ), catchError(this.handleError));
+        // return this.http.get<any>('http://localhost:5000/feed').pipe(catchError(this.handleError)); //400 if use passport.auth...() as the second paramter on server router
+        return this.http.get<any>('http://localhost:5000/feed', { withCredentials: true }).pipe(catchError(this.handleError));
+    }
+
+    getLogout(): Observable<any> {
+        return this.http.get<any>('http://localhost:5000/users/logout', { withCredentials: true }).pipe(catchError(this.handleError));
     }
 
 }
