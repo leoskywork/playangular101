@@ -34,6 +34,7 @@ export class TestService {
         return this.http.post<string>('http://localhost:5000/users/register', data, options).pipe(catchError(this.handleError));
     }
 
+    //todo: error handling
     handleError(error: any) {
         console.log('testService error: ', error);
         return throwError(error);
@@ -41,6 +42,7 @@ export class TestService {
 
     postLogin<T>(data: T): Observable<any> {
         let options = {
+            withCredentials: true,
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             })
@@ -48,4 +50,11 @@ export class TestService {
 
         return this.http.post<any>('http://localhost:5000/users/login', data, options).pipe(catchError(this.handleError));
     }
+
+    getFeed(): Observable<any> {
+        return this.http.get<any>('http://localhost:5000/feed', { withCredentials: true }).pipe(map(
+            r => r
+        ), catchError(this.handleError));
+    }
+
 }
