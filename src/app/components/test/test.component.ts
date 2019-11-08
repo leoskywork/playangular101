@@ -10,6 +10,7 @@ export class TestComponent implements OnInit {
     testCases: TestCases;
     testButtonDisabled: boolean;
     testMessage: string;
+    testButtonTitle: string = 'Test';
 
     loginButtonDisabled: boolean;
     loginMessage: string;
@@ -27,7 +28,10 @@ export class TestComponent implements OnInit {
         setTimeout(() => {
             this.email = 'leoskywork@outlook.com';
             this.password = 'test-pwd';
-        }, 1000);
+
+            //reset title
+            this.testButtonTitle = 'Logout';
+        }, 500);
     }
 
     onTest() {
@@ -40,11 +44,10 @@ export class TestComponent implements OnInit {
 
         this.testCases.testLogout((d) => this.testMessage = this.convert(d));
 
-        //test.testHttpGet(message => this.testMessage = message);
-        //const registerData = { email: this.email, password: 'test-pwd', password2: 'test-pwd' };
-        //this.testCases.testPostRegisterUser(registerData);
+        //this.testCases.testHttpGet(message => this.testMessage = message);
 
-        //test.testPostLogin();
+        //this.testCases.testPostRegisterUser({ email: this.email, password: 'test-pwd', password2: 'test-pwd' });
+
     }
 
     onTestLoadData() {

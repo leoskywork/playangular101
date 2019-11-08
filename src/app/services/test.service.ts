@@ -52,8 +52,19 @@ export class TestService {
     }
 
     getFeed(): Observable<any> {
-        // return this.http.get<any>('http://localhost:5000/feed').pipe(catchError(this.handleError)); //400 if use passport.auth...() as the second paramter on server router
-        return this.http.get<any>('http://localhost:5000/feed', { withCredentials: true }).pipe(catchError(this.handleError));
+        return this.http.get<any>('http://localhost:5000/feedGuarded', { withCredentials: true }).pipe(catchError(this.handleError));
+
+        //400 bad request (missing credentials)
+        // return this.http.get<any>('http://localhost:5000/secured').pipe(catchError(this.handleError));
+        //works
+        // return this.http.get<any>('http://localhost:5000/secured?email=leo@leo.com&password=test-pwd').pipe(catchError(this.handleError));
+
+        //works
+        // return this.http.post<any>('http://localhost:5000/secured?email=leo@leo.com&password=test-pwd', { test: 'test' }).pipe(catchError(this.handleError));
+        //400 bad request (missing credentials)
+        // return this.http.post<any>('http://localhost:5000/secured', { test: 'test' }).pipe(catchError(this.handleError));
+        //works
+        // return this.http.post<any>('http://localhost:5000/secured', { email: 'leo@leo.com', password: 'test-pwd' }).pipe(catchError(this.handleError));
     }
 
     getLogout(): Observable<any> {

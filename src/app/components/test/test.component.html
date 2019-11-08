@@ -1,7 +1,7 @@
 <div>
     <div>
         <div class="space-evenly">
-            <button class="lsk-btn button-titled margin-10" (click)="onTest()" [ngClass]="{ 'lsk-disabled': testButtonDisabled }">Test</button>
+            <button class="lsk-btn button-titled margin-10" (click)="onTest()" [ngClass]="{ 'lsk-disabled': testButtonDisabled }">{{ testButtonTitle }}</button>
         </div>
         <br />
         <p class="text-centered">{{ testMessage }}</p>
