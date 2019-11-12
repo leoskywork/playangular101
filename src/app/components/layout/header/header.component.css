@@ -4,7 +4,10 @@
     color: lightslategray;
     /* remember to adjust margin-right of the fist nav item once you changed the following margin or padding values */
     margin: 0 15px;
-    padding: 6px 0;
+    padding: 1px 0;
+
+    /* in order to make the transform in :hover work, set display to inline-block */
+    display: inline-block;
 }
 
 .nav-item.selected {
@@ -18,17 +21,19 @@
 }
 
 .nav-item:hover {
+    /*note: the following will reposition trailing nav items, not good, do it by transform */
     /* font-weight: bold; */
     /* color: slategray; */
     /* background-color: lightgray; */
     border-bottom: darkslategray 1px solid;
+    transform: scale(1.04, 1.04);
 }
 
 nav {
     margin-top: 10px;
 }
 
-#login-link{
+#login-link {
     font-size: 14px;
     color: deepskyblue;
 }
