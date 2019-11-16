@@ -1,4 +1,96 @@
 <br />
+<div>
+    <h3 class="text-centered">6 ways to center inner element</h3>
+    <br />
+    <div class="centered-container-abs-anchor">
+        <img class="centered-abs" src="assets/images/seagull320x240.jpg" />
+    </div>
+    <div class="dev-note-container">
+        <div class="dev-note-body">
+            <h4>[absolute] center inner by absolute + transform, translate</h4>
+            <br />
+            <code>.outer => position: relative;</code>
+            <br />
+            <code>.inner => position: absolute; </code>
+            <code>top: 50%;</code>
+            <code>left: 50%</code>
+            <code>transform: translate(-50%, -50%);</code>
+        </div>
+    </div>
+    <br />
+    <div class="centered-container-abs-anchor">
+        <img class="centered-abs2" src="assets/images/seagull320x240.jpg" />
+    </div>
+    <div class="dev-note-container">
+        <div class="dev-note-body">
+            <h4>[absolute 2] center inner by absolute + margin auto + top, right same offset & bottom, left same offset</h4>
+            <br />
+            <p>offset can be a range of numbers [0, x], usually set to 0</p>
+        </div>
+    </div>
+    <br />
+    <div class="centered-container-flex">
+        <img src="assets/images/seagull320x240.jpg" />
+    </div>
+    <div class="dev-note-container">
+        <div class="dev-note-body">
+            <h4>[flex] center one child by set justify-content, align-items of outer</h4>
+            <br />
+            <p>only set outer element</p>
+        </div>
+    </div>
+    <br />
+    <div class="centered-container-flex2">
+        <img class="centered-flex-item2" src="assets/images/seagull320x240.jpg" />
+    </div>
+    <div class="dev-note-container">
+        <div class="dev-note-body">
+            <h4>[flex 2] center one child by flex + margin auto of inner</h4>
+            <br />
+            <code>.outer => display: flex;</code>
+            <br />
+            <code>.inner => margin: auto;</code>
+        </div>
+    </div>
+    <br />
+    <div class="centered-container-table-cell">
+        <img src="assets/images/seagull320x240.jpg" />
+    </div>
+    <div class="dev-note-container">
+        <div class="dev-note-body">
+            <h4>[table-cell] center one child by table-cell + text-align +vertical-align</h4>
+            <br />
+            <p>only set outer element</p>
+            <p><em>note:</em> seems margin not working on 'table-cell'</p>
+        </div>
+    </div>
+    <br />
+    <div class="centered-container-grid">
+        <img class="centered-grid-item" src="assets/images/seagull320x240.jpg" />
+    </div>
+    <div class="dev-note-container">
+        <div class="dev-note-body">
+            <h4>[grid] outer display grid + inner align-self, inner justify-self</h4>
+            <br />
+            <code>.outer => display: grid;</code>
+            <br />
+            <code>.inner => align-self: center;</code>
+            <code>justify-self: center;</code>
+        </div>
+    </div>
+    <br />
+</div>
+<br />
+<!-- dev note templates -->
+<div hidden class="dev-note-container">
+    <div class="dev-note-body">
+        <h4>header</h4>
+        <br />
+        <p>paragraph</p>
+    </div>
+</div>
+<br />
 <p class="text-centered">about works!</p>
 <br />
 <p class="text-centered">leoskywork@outlook.com</p>
+<br />

@@ -1,0 +1,111 @@
+/* ------------------------------------------ */
+
+/* ------------------------------------------ 6 ways to center inner element */
+.centered-container-abs-anchor {
+    /* need set position to relative to make inner absolute position work */
+    position: relative;
+    /* the following help to test if inner is centered within outer container */
+    border: darkgray 1px solid;
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+}
+
+.centered-abs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered-abs2 {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.centered-container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* the following help to test if inner is centered within outer container */
+    border: darkgray 1px solid;
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+}
+
+.centered-container-flex2 {
+    display: flex;
+    /* the following help to test if inner is centered within outer container */
+    border: darkgray 1px solid;
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+}
+
+.centered-flex-item2 {
+    margin: auto;
+}
+
+.centered-container-table-cell {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+
+    /* the following help to test if inner is centered within outer container */
+    border: darkgray 1px solid;
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+}
+
+.centered-container-grid {
+    display: grid;
+
+    /* the following help to test if inner is centered within outer container */
+    border: darkgray 1px solid;
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+}
+
+.centered-grid-item {
+    align-self: center;
+    justify-self: center;
+}
+
+/* ------------------------------------------ dev helpers */
+
+.dev-note-container {
+    position: relative;
+    height: 20px;
+}
+
+.dev-note-body {
+    position: absolute;
+    left: 460px;
+    top: -400px;
+    /* background-color: lightgray; */
+    background-color: lightyellow;
+    border-radius: 4px;
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.dev-note-body code {
+    display: block;
+    font-size: 1.2em;
+}
+
+.dev-ground {
+    width: 90%;
+    max-width: 1600px;
+    min-width: 900px;
+    margin: 0 auto;
+    background-color: lightcyan;
+}
