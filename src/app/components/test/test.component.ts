@@ -14,6 +14,8 @@ export class TestComponent implements OnInit {
 
     loginButtonDisabled: boolean;
     loginMessage: string;
+    logoutButtonDisabled: boolean;
+    logoutMessage: string;
     email: string;
     password: string;
 
@@ -30,7 +32,7 @@ export class TestComponent implements OnInit {
             this.password = 'test-pwd';
 
             //reset title
-            this.testButtonTitle = 'Logout';
+            //this.testButtonTitle = 'Logout';
         }, 500);
     }
 
@@ -42,7 +44,9 @@ export class TestComponent implements OnInit {
             this.testButtonDisabled = false;
         }, 1000);
 
-        this.testCases.testLogout((d) => this.testMessage = this.convert(d));
+        let queryArgs = { limit: 10, start: 100, date: '2019-01-01' }
+        queryArgs = null;
+        this.testCases.testGetNews(queryArgs, (data) => this.testMessage = this.convert(data));
 
         //this.testCases.testHttpGet(message => this.testMessage = message);
 
@@ -90,6 +94,19 @@ export class TestComponent implements OnInit {
         });
     }
 
+    onTestLogout() {
+        if (this.logoutButtonDisabled) return;
+        this.logoutButtonDisabled = true;
+        this.logoutMessage = null;
+        setTimeout(() => {
+            this.logoutButtonDisabled = false;
+        }, 1000);
+
+
+
+        this.testCases.testLogout((d) => this.logoutMessage = this.convert(d));
+    }
+
     convert(data: any) {
         if (typeof data == 'object') {
             return JSON.stringify(data);
@@ -103,6 +120,14 @@ export class TestComponent implements OnInit {
 class TestCases {
 
     constructor(private httpService: TestService) {
+    }
+
+    testGetNews(queryArgs?: object, callback?: (data: any) => void) {
+        this.httpService.getNews(queryArgs).subscribe(data => {
+            if (callback) {
+                callback(data);
+            }
+        });
     }
 
     testLogout(callback: (data: any) => void) {

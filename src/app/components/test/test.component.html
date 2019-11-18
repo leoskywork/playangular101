@@ -8,14 +8,18 @@
     </div>
     <br />
     <div>
-        <div class="space-evenly">
-            <input class="margin-10 test-input" type="email" name="email" [(ngModel)]="email" placeholder="Email" />
-            <input class="margin-10 test-input" type="password" name="password" [(ngModel)]="password" placeholder="Password" />
-            <button class="lsk-btn button-titled margin-10" (click)="onTestLogin()" [ngClass]="{ 'lsk-disabled': loginButtonDisabled }">Login</button>
+        <div class="space-evenly margin-10">
+            <input class="test-input" type="email" name="email" [(ngModel)]="email" placeholder="Email" />
+            <input class="test-input" type="password" name="password" [(ngModel)]="password" placeholder="Password" />
+            <button class="lsk-btn button-titled" (click)="onTestLogin()" [ngClass]="{ 'lsk-disabled': loginButtonDisabled }">Login</button>
+            <button class="lsk-btn button-titled" (click)="onTestLogout()" [ngClass]="{ 'lsk-disabled': logoutButtonDisabled }">Logout (by cookie)</button>
         </div>
         <br />
         <p class="text-centered">{{ loginMessage }}</p>
+        <p class="text-centered">{{ logoutMessage ? 'logout: ' + logoutMessage : '' }}</p>
     </div>
+    <br />
+    <hr />
     <br />
     <div>
         <div class="space-evenly">
@@ -24,4 +28,7 @@
         <br />
         <p class="text-centered">{{ loadDataMessage }}</p>
     </div>
+    <br />
+    <hr />
+    <br />
 </div>

@@ -34,12 +34,6 @@ export class TestService {
         return this.http.post<string>('http://localhost:5000/users/register', data, options).pipe(catchError(this.handleError));
     }
 
-    //todo: error handling
-    handleError(error: any) {
-        console.log('testService error: ', error);
-        return throwError(error);
-    }
-
     postLogin<T>(data: T): Observable<any> {
         let options = {
             withCredentials: true,
@@ -71,4 +65,24 @@ export class TestService {
         return this.http.get<any>('http://localhost:5000/users/logout', { withCredentials: true }).pipe(catchError(this.handleError));
     }
 
+    getNews(queryArgs?: object): Observable<any> {
+        let queryString = '';
+        if (queryArgs) {
+            let params = [];
+            for (const propName in queryArgs) {
+                params.push(propName + '=' + queryArgs[propName]);
+            }
+            queryString = '?' + params.join('&');
+        }
+
+        return this.http.get<any>('http://localhost:5000/news' + queryString).pipe(catchError(this.handleError));
+    }
+
+
+
+    //todo: error handling
+    handleError(error: any) {
+        console.log('testService error: ', error);
+        return throwError(error);
+    }
 }
