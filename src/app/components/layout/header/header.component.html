@@ -30,7 +30,12 @@
             [ngClass]="{ selected: currentNavItem == navFaq.pathname }"
             >FAQ</a
         >
-        <a class="nav-item" routerLink="/test" #navTest (click)="onClickNavItem2(navTest.pathname)" [ngClass]="{ selected: currentNavItem == navTest.pathname }"
+        <a
+            class="nav-item"
+            routerLink="/test"
+            #navTest
+            (click)="onClickNavItem2(navTest.pathname)"
+            [ngClass]="{ selected: currentNavItem == navTest.pathname }"
             >Test</a
         >
         <a

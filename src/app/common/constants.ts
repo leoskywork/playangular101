@@ -8,8 +8,8 @@ export class Constants {
     public static readonly lskSessionDev: string = 'dev001abc';
 
     private static readonly baseUrlDev: string = 'http://localhost:57005/';
-    private static readonly baseUrlPilot: string = 'http://leoskywork.com:84/api/';
-    private static readonly baseUrlProd: string = 'http://leoskywork.com/api/';
+    private static readonly baseUrlPilot: string = 'https://leoskywork.com:84/api/';
+    private static readonly baseUrlProd: string = 'https://leoskywork.com/api/';
 
     public static readonly isDev: boolean = true;
     public static readonly isPilot: boolean = true;
