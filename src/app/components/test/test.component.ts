@@ -22,7 +22,9 @@ export class TestComponent implements OnInit {
     loadDataButtonDisabled: boolean;
     loadDataMessage: string;
 
-    constructor(private testService: TestService) { }
+    constructor(private testService: TestService) {
+
+    }
 
     ngOnInit() {
         this.testCases = new TestCases(this.testService);

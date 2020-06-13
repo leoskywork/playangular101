@@ -15,8 +15,13 @@ const routes: Routes = [
     { path: Constants.routeFaq, component: FaqComponent },
     { path: Constants.routeLogin, component: LoginComponent },
 
+
     //add new route rules above this
-    { path: Constants.routeTest, component: TestComponent }
+    { path: Constants.routeTest, component: TestComponent },
+
+    //default router
+    { path: "**", redirectTo: Constants.routeRoot }
+
 ];
 
 @NgModule({
