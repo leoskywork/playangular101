@@ -2,15 +2,28 @@
 
 a project to get familiar with Angular fundamentals
 
+## todo
+
+- [ ] data visualization  
+  - [ ] bar chart  
+  - [ ] pi chart
+
+## Basic
+
+- `ng serve` run in dev mode
+  - `ng serve --open` run and open default browser
+
 ## is it true
 
--   there can not be 2 root elements in component html file?
+- there can not be 2 root elements in component html file?
 
 ## references
 
-## flowing is auto generated
+- [official doc](https://angular.io/tutorial)
 
->
+---
+
+## Flowing is auto generated
 
 ## Development server
 

@@ -11,9 +11,9 @@ export class Constants {
     private static readonly baseUrlPilot: string = 'https://leoskywork.com:84/api/';
     private static readonly baseUrlProd: string = 'https://leoskywork.com/api/';
 
-    public static readonly isDev: boolean = true;
-    public static readonly isPilot: boolean = true;
-    public static readonly isNode: boolean = true;
+
+    private static readonly _appMode: string = 'dev'; //dev, pilot
+    private static readonly _backendEnvironment: string = 'node'; // node, asp.net
 
     public static readonly minVisualTimeMS = 400;
     public static readonly routeRoot: string = '';
@@ -36,13 +36,27 @@ export class Constants {
         return Constants.baseUrlProd;
     }
 
+    public static isDev(): boolean {
+        return Constants._appMode === 'dev';
+    }
+
+    public static isPilot(): boolean {
+        return Constants._appMode === 'pilot';
+    }
+
     public static getAppEnv(): string {
-        if (Constants.isDev) return 'Dev';
-        if (Constants.isPilot) return 'Pilot';
-        return '';
+        return this.capitalize(Constants._appMode); //?? '--unknown--';
+    }
+
+    public static isNode(): boolean {
+        return Constants._backendEnvironment === 'node';
     }
 
     public static getBackendEnvironment(): string {
-        return Constants.isNode ? 'Node' : 'Asp.Net';
+        return this.capitalize(Constants._backendEnvironment);// ?? '--unknown--';
+    }
+
+    private static capitalize(value: string): string {
+        return value && value.length > 0 ? value.charAt(0).toUpperCase() + value.slice(1) : value;
     }
 }

@@ -1,7 +1,10 @@
 <div>
     <div>
         <div class="space-evenly">
-            <button class="lsk-btn button-titled margin-10" (click)="onTest()" [ngClass]="{ 'lsk-disabled': testButtonDisabled }">{{ testButtonTitle }}</button>
+            <button class="lsk-btn button-titled margin-10" 
+                (click)="onTest()" 
+                [disabled]="testButtonDisabled"
+                [ngClass]="{ 'lsk-disabled': testButtonDisabled }">{{ testButtonTitle }}</button>
         </div>
         <br />
         <p class="text-centered">{{ testMessage }}</p>
@@ -11,8 +14,10 @@
         <div class="space-evenly margin-10">
             <input class="test-input" type="email" name="email" [(ngModel)]="email" placeholder="Email" />
             <input class="test-input" type="password" name="password" [(ngModel)]="password" placeholder="Password" />
-            <button class="lsk-btn button-titled" (click)="onTestLogin()" [ngClass]="{ 'lsk-disabled': loginButtonDisabled }">Login</button>
-            <button class="lsk-btn button-titled" (click)="onTestLogout()" [ngClass]="{ 'lsk-disabled': logoutButtonDisabled }">Logout (by cookie)</button>
+            <button class="lsk-btn button-titled" (click)="onTestLogin()"
+                [ngClass]="{ 'lsk-disabled': loginButtonDisabled }">Login</button>
+            <button class="lsk-btn button-titled" (click)="onTestLogout()"
+                [ngClass]="{ 'lsk-disabled': logoutButtonDisabled }">Logout (by cookie)</button>
         </div>
         <br />
         <p class="text-centered">{{ loginMessage }}</p>
@@ -23,7 +28,10 @@
     <br />
     <div>
         <div class="space-evenly">
-            <button class="lsk-btn button-titled margin-10" (click)="onTestLoadData()" [ngClass]="{ 'lsk-disabled': loadDataButtonDisabled }">Load Data</button>
+            <button class="lsk-btn button-titled margin-10" 
+                (click)="onTestLoadData()"
+                [disabled]="loadDataButtonDisabled"
+                [ngClass]="{ 'lsk-disabled': loadDataButtonDisabled }">Load Data</button>
         </div>
         <br />
         <p class="text-centered">{{ loadDataMessage }}</p>
@@ -31,4 +39,15 @@
     <br />
     <hr />
     <br />
+    <div>
+        <h3 class="text-centered">bar chart & pi chart</h3>
+        <button class="lsk-btn button-titled margin-10" 
+            (click)="onTestLoadChartData()" 
+            [disabled]="loadChartDataButtonDisabled"
+            [ngClass]="{'lsk-disabled': loadChartDataButtonDisabled}">Load chart data</button>
+    </div>
+    <br />
+    <hr />
+    <br />
+
 </div>

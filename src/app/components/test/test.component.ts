@@ -22,6 +22,9 @@ export class TestComponent implements OnInit {
     loadDataButtonDisabled: boolean;
     loadDataMessage: string;
 
+    //-------------------charts
+    loadChartDataButtonDisabled: boolean;
+
     constructor(private testService: TestService) {
 
     }
@@ -117,6 +120,39 @@ export class TestComponent implements OnInit {
         return data;
     }
 
+    onTestLoadChartData() {
+        console.log('--onTestLoadChartData');
+
+        if (this.loadChartDataButtonDisabled) return;
+        this.loadChartDataButtonDisabled = true;
+        setTimeout(() => {
+            this.loadChartDataButtonDisabled = false;
+        }, 2000);
+
+        const statData = [new StatPAT('ServiceA', 100, 90, new Date()),
+            new StatPAT('ServiceB', 300, 300, new Date()),
+            new StatPAT('ServiceC', 0, 0, new Date()),
+            new StatPAT('ServiceD', 100, 0, new Date()),
+            new StatPAT('ServiceE', 288, 185, new Date()),
+            new StatPAT('ServiceF', 35, 23, new Date()),
+        ]
+
+    }
+
+}
+
+class StatPAT {
+    service: string;
+    totalServers: number;
+    successServers: number;
+    date: Date;
+
+    constructor(service: string, total: number, success: number, date: Date) {
+        this.service = service;
+        this.totalServers = total;
+        this.successServers = success;
+        this.date = date;
+    }
 }
 
 class TestCases {
@@ -136,6 +172,7 @@ class TestCases {
         this.httpService.getLogout().subscribe(data => callback(data));
     }
 
+    //login first then get feed(with cred)
     testGetData(callback: (data: any) => void) {
         this.httpService.getFeed().subscribe(data => {
             callback(data);
