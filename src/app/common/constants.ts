@@ -7,13 +7,13 @@ export class Constants {
     public static readonly lskSessionHeader: string = 'lsk-session-id';
     public static readonly lskSessionDev: string = 'dev001abc';
 
-    private static readonly baseUrlDev: string = 'http://localhost:57005/';
+    private static readonly baseUrlDev: string = 'http://localhost:57005/'; //asp.net url
     private static readonly baseUrlPilot: string = 'https://leoskywork.com:84/api/';
     private static readonly baseUrlProd: string = 'https://leoskywork.com/api/';
 
 
     private static readonly _appMode: string = 'dev'; //dev, pilot
-    private static readonly _backendEnvironment: string = 'node'; // node, asp.net
+    private static readonly _backendEnvironment: string = 'asp.net'; // node, asp.net
 
     public static readonly minVisualTimeMS = 400;
     public static readonly routeRoot: string = '';

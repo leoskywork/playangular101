@@ -2,28 +2,55 @@
 
 a project to get familiar with Angular fundamentals
 
+- references
+  - [official doc](https://angular.io/tutorial)
+- data binding(2 ways), event binding, attribute binding
+- pass data between components
+  - parent     -> child
+  - child      -> parent
+  - relative 1 -> relative 2
+- routing
+- http service
+  - `import { HttpClient, HttpHeaders } from '@angular/common/http';`
+
 ## todo
 
 - [ ] data visualization  
   - [ ] bar chart  
   - [ ] pi chart
 
-## Basic
+## basic
 
 - `ng serve` run in dev mode
   - `ng serve --open` run and open default browser
 
-## is it true
+## is it true, error fix, bug fix
 
 - there can not be 2 root elements in component html file?
 
-## references
+## how to create an simple angular project
 
-- [official doc](https://angular.io/tutorial)
+```sh
+# [how to setup](https://angular.io/guide/setup-local)
+
+# prerequisite - node.js and npm
+node -v  # check version
+npm -v   # check version
+
+# create a workspace and init app
+npm install -g @angular/cli # install angular cli, only need do once
+cd /e/Dev/VSCode            # enter a folder
+ng new angular102           # create an app 'angular102', may take minutes, press enter to use defaults when prompt
+
+# run
+cd angular102      # enter the app src folder
+ng serve --open    # run and open default browser
+
+```
 
 ---
 
-## Flowing is auto generated
+## Flowing is auto generated ----------------------------------------------------------------------
 
 ## Development server
 
